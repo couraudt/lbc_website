@@ -1,0 +1,245 @@
+<%= stylesheet_link_tag 'homepage', media: 'all' %>
+<%= javascript_include_tag 'homepage' %>
+<div class="page_align">
+<div class="page_width">
+<div id="ContainerMain">
+<div class="content-color">
+<%= semantic_form_for @infos, url: homepage_create_path, html: { name: 'account_create', id: 'account_create' } do |f| %>
+<%= f.semantic_errors *f.object.errors.keys %>
+<div class="clear"></div>
+<h2>Vos coordonn&eacute;es</h2>
+<div class="subtitle_triangle"> </div>
+<div class="clear"></div>
+<div id="account_create_gender_block">
+  <div class="labelform" id="account_create_gender_label">
+    <label for="account_create_gender">Civilit&eacute;<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_gender_input">
+    <div class="select">
+      <select name="gender" id="account_create_gender">
+        <option value="0">Civilit&eacute;</option>
+        <option value="1">Mr</option>
+        <option value="2">Mme</option>
+        <option value="3">Mlle</option>
+      </select>
+    </div>
+    <div class="message err right none" id="account_create_gender_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_lastname_block">
+  <div class="labelform" id="account_create_lastname_label">
+    <label for="account_create_lastname">Nom<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_lastname_input">
+    <input type="text" name="lastname" maxlength="30" id="account_create_lastname" />
+    <div class="message err right none" id="account_create_lastname_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre nom</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_firstname_block">
+  <div class="labelform" id="account_create_firstname_label">
+    <label for="account_create_firstname">Pr&eacute;nom<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_firstname_input">
+    <input type="text" name="firstname" maxlength="30" id="account_create_firstname" />
+    <div class="message err right none" id="account_create_firstname_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre pr&eacute;nom</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_pseudo_block">
+  <div class="labelform" id="account_create_pseudo_label">
+    <label for="account_create_pseudo">Pseudonyme<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_pseudo_input">
+    <input type="text" name="pseudo" maxlength="30" id="account_create_pseudo" />
+    <div class="message err right none" id="account_create_pseudo_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Votre pseudo sera affich&eacute; sur vos annonces</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_region_block">
+  <div class="labelform" id="account_create_region_label">
+    <label for="account_create_region">R&eacute;gion<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_region_input">
+    <div class="select">
+      <select name="region" id="account_create_region">
+        <option value="0">&laquo;Choisissez la r&eacute;gion&raquo;</option>
+        <option value="1">Alsace</option>
+        <option value="2">Aquitaine</option>
+        <option value="3">Auvergne</option>
+        <option value="4">Basse-Normandie</option>
+        <option value="5">Bourgogne</option>
+        <option value="6">Bretagne</option>
+        <option value="7">Centre</option>
+        <option value="8">Champagne-Ardenne</option>
+        <option value="9">Corse</option>
+        <option value="10">Franche-Comté</option>
+        <option value="11">Haute-Normandie</option>
+        <option value="12">Ile-de-France</option>
+        <option value="13">Languedoc-Roussillon</option>
+        <option value="14">Limousin</option>
+        <option value="15">Lorraine</option>
+        <option value="16">Midi-Pyrénées</option>
+        <option value="17">Nord-Pas-de-Calais</option>
+        <option value="18">Pays de la Loire</option>
+        <option value="19">Picardie</option>
+        <option value="20">Poitou-Charentes</option>
+        <option value="21">Provence-Alpes-Côte d'Azur</option>
+        <option value="22">Rhône-Alpes</option>
+        <option value="23">Guadeloupe</option>
+        <option value="24">Martinique</option>
+        <option value="25">Guyane</option>
+        <option value="26">Réunion</option>
+      </select>
+    </div>
+    <div class="message err right none" id="account_create_region_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_dpt_code_block" class="none">
+  <div class="labelform" id="account_create_dpt_code_label">
+    <label for="account_create_dpt_code">D&eacute;partement<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_dpt_code_input">
+    <div class="select">
+      <select name="dpt_code" id="account_create_dpt_code">
+        <option value="0">&laquo;Choisissez le d&eacute;partement&raquo;</option>
+      </select>
+    </div>
+    <div class="message err right none" id="account_create_dpt_code_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_billing_address_block" class="formInput590">
+  <div class="labelform" id="account_create_billing_address_label">
+    <label for="account_create_billing_address">Adresse<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_billing_address_input">
+    <input type="text" name="billing_address" maxlength="200" id="account_create_billing_address" />
+    <div class="clear"></div>
+    <div class="message err below none" id="account_create_billing_address_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="clear"></div>
+    <div class="message info below">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre adresse</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_billing_zipcode_block">
+  <div class="labelform" id="account_create_billing_zipcode_label">
+    <label for="account_create_billing_zipcode">Code Postal<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_billing_zipcode_input">
+    <input type="text" name="billing_zipcode" maxlength="5" id="account_create_billing_zipcode" />
+    <div class="message err right none" id="account_create_billing_zipcode_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre code postal</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_billing_postal_city_block">
+  <div class="labelform" id="account_create_billing_postal_city_label">
+    <label for="account_create_billing_postal_city">Ville<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_billing_postal_city_input">
+    <input type="text" name="billing_postal_city" maxlength="60" id="account_create_billing_postal_city" />
+    <div class="message err right none" id="account_create_billing_postal_city_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre ville</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="account_create_phone_block">
+  <div class="labelform" id="account_create_phone_label">
+    <label for="account_create_phone">T&eacute;l&eacute;phone<span class="requirelabel">*</span>&nbsp;:</label>
+  </div>
+  <div class="adinput" id="account_create_phone_input">
+    <input type="text" name="phone" maxlength="10" id="account_create_phone" />
+    <div class="message err right none" id="account_create_phone_err">
+      <div class="triangle">&nbsp;</div>
+      <span></span>
+    </div>
+    <div class="message info right">
+      <div class="triangle">&nbsp;</div>
+      <span>Veuillez saisir votre num&eacute;ro de t&eacute;l&eacute;phone</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="htmlbloc">
+  (<span class="requirelabel">*</span>) Champs obligatoires
+</div>
+<div class="clear"></div>
+<div class="labelform">&nbsp;</div>
+<div id="submit-buttoms" class="adinput">
+  <input class="button" type="submit" value="Valider" name="validate">
+</div>
+<div class="clear"></div>
+<% end %>
+<script>
+  var jsonFormControl = [{"account_create_gender":[{"function":"notEqual","arg":[0],"message":"Veuillez s&eacute;lectionner une civilit&eacute;"}]},{"account_create_lastname":[{"function":"require","message":"Veuillez saisir votre nom"},{"function":"minMaxLength","arg":[2,30],"message":"Votre nom doit contenir au moins 2 lettres"},{"function":"alphaSpeName","message":"Le nom saisi est invalide"}]},{"account_create_firstname":[{"function":"require","message":"Veuillez saisir votre pr&eacute;nom"},{"function":"minMaxLength","arg":[2,30],"message":"Votre pr&eacute;nom doit contenir au moins 2 lettres"},{"function":"alphaSpeName","message":"Le pr&eacute;nom saisi est invalide"}]},{"account_create_pseudo":[{"function":"require","message":"Veuillez saisir votre pseudonyme"},{"function":"pseudo","message":"Votre pseudonyme ne doit pas contenir d'espace ou de caract&egrave;res sp&eacute;ciaux"}]},{"account_create_region":[{"function":"notEqual","arg":[0],"message":"Veuillez s&eacute;lectionner une r&eacute;gion"}]},{"account_create_dpt_code":[{"function":"notEqualAndSelectableFrom","arg":[0,"account_create_region","1:2:3:4:5:6:7:8:10:11:12:13:14:15:16:17:18:19:20:21:22"],"message":"Veuillez s&eacute;lectionner un d&eacute;partement"}]},{"account_create_billing_address":[{"function":"require","message":"Veuillez saisir une adresse"},{"function":"minMaxLength","message":"Votre adresse doit contenir entre 2 et 200 caract&egrave;res","arg":[2,200]},{"function":"alphanumSpeAdress","message":"Votre adresse ne peut contenir que des caract&egrave;res alphanum&eacute;riques, ainsi que des espaces et les caract&egrave;res autoris&eacute;s (-,\/)"}]},{"account_create_billing_zipcode":[{"function":"require","message":"Veuillez saisir un code postal"},{"function":"numeric","message":"Votre code postal ne peut &ecirc;tre compos&eacute; que de chiffres"},{"function":"minMaxLength","message":"Votre code postal doit &ecirc;tre compos&eacute; de 5 chiffres","arg":[5,5]},{"function":"matchToDptOrReg","message":"Le code postal n'est pas correct, soit parce qu'il est invalide, soit parce qu'il n'appartient pas au d&eacute;partement s&eacute;lectionn&eacute;.","arg":["dpt_code","common.cities","region","common.region","oversea_departments"]}]},{"account_create_billing_postal_city":[{"function":"require","message":"Veuillez saisir une ville"},{"function":"alphanumSpeCity","message":"Votre ville ne peut contenir que des caract&egrave;res alphanum&eacute;riques, ainsi que des espaces et les caract&egrave;res autoris&eacute;s (-,\/). Votre ville doit commencer obligatoirement par un caract&egrave;re alphab&eacute;tique."}]},{"account_create_phone":[{"function":"require","message":"Veuillez saisir un num&eacute;ro de t&eacute;l&eacute;phone.<br \/>Exemple : 0122334455"},{"function":"numeric","message":"Votre t&eacute;l&eacute;phone ne peut contenir que des chiffres.<br \/>Exemple : 0122334455"},{"function":"minMaxLength","message":"Votre t&eacute;l&eacute;phone doit contenir 10 chiffres.<br \/>Exemple : 0122334455","arg":[10,10]},{"function":"phone","message":"Votre num&eacute;ro de t&eacute;l&eacute;phone n'est pas au bon format.<br \/>Exemple : 0122334455"}]},{"account_create_birth_date":[{"function":"notEqualForDateSelect","arg":["_day","_month","_year"],"message":"La date selectionn&eacute;e semble incompl&egrave;te."}]},{"account_create_username_create":[{"function":"require","message":"Veuillez saisir un e-mail"},{"function":"email","message":"Votre e-mail doit &ecirc;tre au bon format"}]},{"account_create_st_passwd":[{"function":"require","message":"Veuillez saisir un mot de passe"},{"function":"password","message":"Choisissez un mot de passe difficile &agrave; deviner et comprenant au moins 8 caract&egrave;res avec au moins 1 chiffre et au moins 1 lettre. Les caract&egrave;res sp&eacute;ciaux accept&eacute;s sont les suivants : . - _ + = ! ;"}]},{"account_create_verify_passwd":[{"function":"require","message":"Veuillez confirmer le mot de passe"},{"function":"sameValue","message":"Les mots de passe saisis sont diff&eacute;rents. Veuillez r&eacute;essayer","arg":["st_passwd"]}]},{"account_create_optin":[]},{"account_create_cgv":[{"function":"require","message":"Veuillez accepter les Conditions G&eacute;n&eacute;rales de Vente pour confirmer la cr&eacute;ation de votre compte.","arg":["checkbox"]}]}];
+  var jsonFormExtra = [{"account_create_dpt_code":[{"function":"changeFromSelect","arg":["account_create_region",{"1":{"67":"Bas-Rhin","68":"Haut-Rhin"},"2":{"24":"Dordogne","33":"Gironde","40":"Landes","47":"Lot-et-Garonne","64":"Pyr&eacute;n&eacute;es-Atlantiques"},"3":{"3":"Allier","15":"Cantal","43":"Haute-Loire","63":"Puy-de-D&ocirc;me"},"4":{"14":"Calvados","50":"Manche","61":"Orne"},"5":{"21":"C&ocirc;te-d'Or","58":"Ni&egrave;vre","71":"Sa&ocirc;ne-et-Loire","89":"Yonne"},"6":{"22":"C&ocirc;tes-d'Armor","29":"Finist&egrave;re","35":"Ille-et-Vilaine","56":"Morbihan"},"7":{"18":"Cher","28":"Eure-et-Loir","36":"Indre","37":"Indre-et-Loire","41":"Loir-et-Cher","45":"Loiret"},"8":{"8":"Ardennes","10":"Aube","51":"Marne","52":"Haute-Marne"},"10":{"25":"Doubs","39":"Jura","70":"Haute-Sa&ocirc;ne","90":"Territoire de Belfort"},"11":{"27":"Eure","76":"Seine-Maritime"},"12":{"75":"Paris","77":"Seine-et-Marne","78":"Yvelines","91":"Essonne","92":"Hauts-de-Seine","93":"Seine-Saint-Denis","94":"Val-de-Marne","95":"Val-d'Oise"},"13":{"11":"Aude","30":"Gard","34":"H&eacute;rault","48":"Loz&egrave;re","66":"Pyr&eacute;n&eacute;es-Orientales"},"14":{"19":"Corr&egrave;ze","23":"Creuse","87":"Haute-Vienne"},"15":{"54":"Meurthe-et-Moselle","55":"Meuse","57":"Moselle","88":"Vosges"},"16":{"9":"Ari&egrave;ge","12":"Aveyron","31":"Haute-Garonne","32":"Gers","46":"Lot","65":"Hautes-Pyr&eacute;n&eacute;es","81":"Tarn","82":"Tarn-et-Garonne"},"17":{"59":"Nord","62":"Pas-de-Calais"},"18":{"44":"Loire-Atlantique","49":"Maine-et-Loire","53":"Mayenne","72":"Sarthe","85":"Vend&eacute;e"},"19":{"2":"Aisne","60":"Oise","80":"Somme"},"20":{"16":"Charente","17":"Charente-Maritime","79":"Deux-S&egrave;vres","86":"Vienne"},"21":{"4":"Alpes-de-Haute-Provence","5":"Hautes-Alpes","6":"Alpes-Maritimes","13":"Bouches-du-Rh&ocirc;ne","83":"Var","84":"Vaucluse"},"22":{"1":"Ain","7":"Ard&egrave;che","26":"Dr&ocirc;me","38":"Is&egrave;re","42":"Loire","69":"Rh&ocirc;ne","73":"Savoie","74":"Haute-Savoie"}}]}]}];
+  var jsonConfControl = null;
+  var selectorElement = '#account_create';
+</script>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>

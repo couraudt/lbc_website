@@ -1,0 +1,38 @@
+fr:
+  activerecord:
+    models:
+      classified:
+        zero: Annonce
+        one: Annonce
+        other: Annonces
+    attributes:
+      classified:
+        name: Titre de l'annonce
+        pseudo: Pseudonyme
+        price: Prix
+        password: Mot de passe
+        activated: Activée
+        created_at: Crée le
+        image_1: Photo principale
+        image_2: Deuxième photo
+        image_3: Troisième photo
+        activate_count: Nombre d'activations
+        activate_at: Activée le
+        unique_id: Identifiant
+        lbc_id: Référence LBC
+        enable: Activée
+  status:
+    text:
+      online: En ligne
+      processing: En création
+      pending: En validation
+      refused: Refusée
+      deleting: En suppression
+      deleted: Supprimée
+    class:
+      online: ok
+      processing: warn
+      pending: warn
+      refused: error
+      deleting: warn
+      deleted: nil

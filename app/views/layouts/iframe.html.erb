@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://www2.leboncoin.fr/css/add_35146.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    .gallery-opt {background-image: url("http://www2.leboncoin.fr/img/mini-list.png");}
+    input.bt_modify_ad {background-image: url("http://www2.leboncoin.fr/img/bt-modify-ad.png");}
+    input.bt_validate {background-image: url("http://www2.leboncoin.fr/img/pro_bt_validate_j.png");}
+    .photo.waiting {background-image: url("http://www2.leboncoin.fr/img/wait_anim.gif");}
+    .ui-icon, input.edit {background-image: url("http://www2.leboncoin.fr/img/jquery_datepicker.png");}
+    .upload_button img { height: 100%; width: 100%; display: none;}
+  </style>
+  <%= javascript_include_tag 'lbc' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="ua_CHR">
+  <%= yield %>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Bonjour <%= @user.name %>,
+===============================================
+
+Vous avez recu un message pour l'annonce "<%= @classified.name %>" :
+
+<%= @content %>
+
+Vous pouvez voir votre annonce à cette adresse: <%= @url %>.
+
+Vous pouvez à tout moment gérer votre annonce directement sur notre site : <%= classified_url @classified %>.

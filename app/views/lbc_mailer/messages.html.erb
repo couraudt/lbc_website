@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Bonjour <%= @user.name %>,</h1>
+<p>
+  Vous avez recu un message pour l'annonce "<b><%= @classified.name %></b>" :
+</p>
+<p><%= simple_format @content %></p>
+<p>
+  Vous pouvez voir votre annonce à cette adresse: <%= link_to @url, @url %>.
+</p>
+<br>
+<table>
+  <tr>
+    <td style="background:none; border:dotted 1px #999999; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px; padding-top:10px;padding-bottom:10px;">&nbsp;</td>
+  </tr>
+</table>
+<p>
+  Vous pouvez à tout moment gérer votre annonce directement sur notre site : <%= link_to 'Cliquer ici', classified_url(@classified) %>.
+</p>
+</body>
+</html>

@@ -1,0 +1,3182 @@
+<%= stylesheet_link_tag 'classified', media: 'all' %>
+<%= javascript_include_tag 'classified' %>
+<style type="text/css">
+  .gallery-opt {background-image: url("http://www2.leboncoin.fr/img/mini-list.png");}
+  input.bt_modify_ad {background-image: url("http://www2.leboncoin.fr/img/bt-modify-ad.png");}
+  input.bt_validate {background-image: url("http://www2.leboncoin.fr/img/pro_bt_validate_j.png");}
+  .photo.waiting {background-image: url("http://www2.leboncoin.fr/img/wait_anim.gif");}
+  .ui-icon, input.edit {background-image: url("http://www2.leboncoin.fr/img/jquery_datepicker.png");}
+  .upload_button img { height: 100%; width: 100%; display: none;}
+</style>
+<div class="page_align" id="page_align">
+<div class="page_width" id="page_width">
+<div id="ContainerMain">
+<div class="content-color">
+<!-- immo_store_newad_price -> %immo_store_newad_price / %immo_store_newad_price_no_tax -->
+<script type="text/javascript">
+  //<![CDATA[
+  <!--
+                photosup_label_5_images = "Pack de 5 photos suppl&eacute;mentaires";
+                photosup_label_7_images = "Pack de 7 photos suppl&eacute;mentaires";
+                -->
+  //]]>
+
+</script>
+<%= semantic_form_for @classified, html: { name: 'formular', multipart: true } do |f| %>
+<%= f.semantic_errors *f.object.errors.keys %>
+<div id="newad_form" class="lbcAcont">
+<input type="hidden" name="check_type_diff" id="check_type_diff" value="1" />
+<div class="clear"></div>
+<h2>
+  Localisation
+</h2>
+<div class="subtitle_triangle">
+  &nbsp;
+</div>
+<div class="clear"></div>
+<div class="labelform">
+  <label>R&#233;gion:</label>
+</div>
+<div class="adinput">
+  <div class="select">
+    <select name="region" onchange="showDepartment('region');" id=
+        "region">
+      <option value="0">
+        &#171;Choisissez la r&#233;gion&#187;
+      </option>
+      <option value="1">
+        Alsace
+      </option>
+      <option value="2">
+        Aquitaine
+      </option>
+      <option value="3">
+        Auvergne
+      </option>
+      <option value="4">
+        Basse-Normandie
+      </option>
+      <option value="5">
+        Bourgogne
+      </option>
+      <option value="6">
+        Bretagne
+      </option>
+      <option value="7">
+        Centre
+      </option>
+      <option value="8">
+        Champagne-Ardenne
+      </option>
+      <option value="9">
+        Corse
+      </option>
+      <option value="10">
+        Franche-Comt&#233;
+      </option>
+      <option value="11">
+        Haute-Normandie
+      </option>
+      <option value="12">
+        Ile-de-France
+      </option>
+      <option value="13">
+        Languedoc-Roussillon
+      </option>
+      <option value="14">
+        Limousin
+      </option>
+      <option value="15">
+        Lorraine
+      </option>
+      <option value="16">
+        Midi-Pyr&#233;n&#233;es
+      </option>
+      <option value="17">
+        Nord-Pas-de-Calais
+      </option>
+      <option value="18">
+        Pays de la Loire
+      </option>
+      <option value="19">
+        Picardie
+      </option>
+      <option value="20">
+        Poitou-Charentes
+      </option>
+      <option value="21">
+        Provence-Alpes-C&#244;te d'Azur
+      </option>
+      <option value="22">
+        Rh&#244;ne-Alpes
+      </option>
+      <option value="23">
+        Guadeloupe
+      </option>
+      <option value="24">
+        Martinique
+      </option>
+      <option value="25">
+        Guyane
+      </option>
+      <option value="26">
+        R&#233;union
+      </option>
+    </select>
+  </div>
+  <div class="message err right" id="err_region" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_region"></span>
+  </div>
+  <div id="info_region" class="warning" style=
+      "display:none; clear:both; float:none"></div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display:none;" id="ldpt_code">
+  <label>D&#233;partement:</label>
+</div>
+<div class="adinput height-limit" id="ddpt_code" style="display:none;">
+  <div class="select">
+    <select name="dpt_code" id="dpt_code" onchange=
+        "setFocus('zipcode');">
+      <option value="0">
+        &#171;Choisissez le d&#233;partement&#187;
+      </option>
+    </select>
+  </div>
+  <div class="message err right" id="err_dpt_code" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_dpt_code"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform">
+  <label>Code postal:</label>
+</div>
+<div class="adinput">
+  <input id="zipcode" name="zipcode" size="6" maxlength="5" type="text"
+         value="" />
+  <div class="message err right" id="err_zipcode" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_zipcode"></span>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                    <span>Indiquez le code postal de l'endroit o&#249; se trouve
+                    le bien que vous proposez ou recherchez.</span>
+  </div>
+  <div class="clear"></div>
+  <div id="info_zipcode" class="warning" style=
+      "display:none; clear:both; float:none"></div>
+</div>
+<div class="clear"></div>
+<h2>
+  Cat&#233;gorie
+</h2>
+<div class="subtitle_triangle">
+  &nbsp;
+</div>
+<div class="clear"></div>
+<div class="labelform">
+  <label>Cat&#233;gorie:</label>
+</div>
+<div class="adinput">
+<div class="select">
+<select onchange=
+            "showCategory('category', 'carextras', 'company_ad', 'err_category',0);toggleCompteproFields();changeNewAdClass();showBrand('category'); resetAnimalType(); resetAnimalFields();"
+        name="category" id="category">
+<option value="0">
+  &#171;Choisissez la cat&#233;gorie&#187;
+</option>
+<option value='1' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat1'>
+  -- VEHICULES --
+</option>
+<option value='2' id='cat2'>
+  Voitures
+</option>
+<option value='3' id='cat3'>
+  Motos
+</option>
+<option value='4' id='cat4'>
+  Caravaning
+</option>
+<option value='5' id='cat5'>
+  Utilitaires
+</option>
+<option value='6' id='cat6'>
+  Equipement Auto
+</option>
+<option value='44' id='cat44'>
+  Equipement Moto
+</option>
+<option value='50' id='cat50'>
+  Equipement Caravaning
+</option>
+<option value='7' id='cat7'>
+  Nautisme
+</option>
+<option value='51' id='cat51'>
+  Equipement Nautisme
+</option>
+<option value='8' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat8'>
+  -- IMMOBILIER --
+</option>
+<option value='9' id='cat9'>
+  Ventes immobili&#232;res
+</option>
+<option value='10' id='cat10'>
+  Locations
+</option>
+<option value='11' id='cat11'>
+  Colocations
+</option>
+<option value='12' id='cat12'>
+  Locations de vacances
+</option>
+<option value='13' id='cat13'>
+  Bureaux &amp; Commerces
+</option>
+<option value='14' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat14'>
+  -- MULTIMEDIA --
+</option>
+<option value='15' id='cat15'>
+  Informatique
+</option>
+<option value='43' id='cat43'>
+  Consoles &amp; Jeux vid&#233;o
+</option>
+<option value='16' id='cat16'>
+  Image &amp; Son
+</option>
+<option value='17' id='cat17'>
+  T&#233;l&#233;phonie
+</option>
+<option value='18' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat18'>
+  -- MAISON --
+</option>
+<option value='19' id='cat19'>
+  Ameublement
+</option>
+<option value='20' id='cat20'>
+  Electrom&#233;nager
+</option>
+<option value='45' id='cat45'>
+  Arts de la table
+</option>
+<option value='39' id='cat39'>
+  D&#233;coration
+</option>
+<option value='46' id='cat46'>
+  Linge de maison
+</option>
+<option value='21' id='cat21'>
+  Bricolage
+</option>
+<option value='52' id='cat52'>
+  Jardinage
+</option>
+<option value='22' id='cat22'>
+  V&#234;tements
+</option>
+<option value='53' id='cat53'>
+  Chaussures
+</option>
+<option value='47' id='cat47'>
+  Accessoires &amp; Bagagerie
+</option>
+<option value='42' id='cat42'>
+  Montres &amp; Bijoux
+</option>
+<option value='23' id='cat23'>
+  Equipement b&#233;b&#233;
+</option>
+<option value='54' id='cat54'>
+  V&#234;tements b&#233;b&#233;
+</option>
+<option value='24' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat24'>
+  -- LOISIRS --
+</option>
+<option value='25' id='cat25'>
+  DVD / Films
+</option>
+<option value='26' id='cat26'>
+  CD / Musique
+</option>
+<option value='27' id='cat27'>
+  Livres
+</option>
+<option value='28' id='cat28'>
+  Animaux
+</option>
+<option value='55' id='cat55'>
+  V&#233;los
+</option>
+<option value='29' id='cat29'>
+  Sports &amp; Hobbies
+</option>
+<option value='30' id='cat30'>
+  Instruments de musique
+</option>
+<option value='40' id='cat40'>
+  Collection
+</option>
+<option value='41' id='cat41'>
+  Jeux &amp; Jouets
+</option>
+<option value='48' id='cat48'>
+  Vins &amp; Gastronomie
+</option>
+<option value='56' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat56'>
+  -- MATERIEL PROFESSIONNEL --
+</option>
+<option value='57' id='cat57'>
+  Mat&#233;riel Agricole
+</option>
+<option value='58' id='cat58'>
+  Transport - Manutention
+</option>
+<option value='59' id='cat59'>
+  BTP - Chantier Gros-oeuvre
+</option>
+<option value='60' id='cat60'>
+  Outillage - Mat&#233;riaux 2nd-oeuvre
+</option>
+<option value='32' id='cat32'>
+  &#201;quipements Industriels
+</option>
+<option value='61' id='cat61'>
+  Restauration - H&#244;tellerie
+</option>
+<option value='62' id='cat62'>
+  Fournitures de Bureau
+</option>
+<option value='63' id='cat63'>
+  Commerces &amp; March&#233;s
+</option>
+<option value='64' id='cat64'>
+  Mat&#233;riel M&#233;dical
+</option>
+<option value='31' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat31'>
+  -- EMPLOI &amp; SERVICES --
+</option>
+<option value='33' id='cat33'>
+  Emploi
+</option>
+<option value='34' id='cat34'>
+  Services
+</option>
+<option value='35' id='cat35'>
+  Billetterie
+</option>
+<option value='49' id='cat49'>
+  Ev&#233;nements
+</option>
+<option value='36' id='cat36'>
+  Cours particuliers
+</option>
+<option value='65' id='cat65'>
+  Covoiturage
+</option>
+<option value='37' style='background-color:#dcdcc3' disabled=
+    "disabled" id='cat37'>
+  -- -- --
+</option>
+<option value='38' id='cat38'>
+  Autres
+</option>
+</select>
+</div>
+<div class="message warn right" id="err_category" style=
+    "display: none">
+  <div class="triangle">
+    &nbsp;
+  </div>
+  <span class="warning" id="err_msg_category"></span>
+</div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="labelform">
+  Vous &#234;tes un:
+</div>
+<div class="adinput">
+  <div id="dprivate_ad" class="radio">
+    <input id="private_ad_id" name="company_ad" value="0" checked=
+        "checked" onclick=
+               "showType('private_ad_id', 'lname');toggleCompteproFields();;showCategory('category', 'carextras', 'company_ad', 'err_category');showBrand('category');"
+           type="radio" /> <label for="private_ad_id" id=
+      "lprivate_ad">Particulier</label>&nbsp;
+  </div>
+  <div id="dcompany_ad" class="radio">
+    <input id="company_ad_id" name="company_ad" value="1" onclick=
+        "showType('company_ad_id', 'lname');toggleCompteproFields();;showCategory('category', 'carextras', 'company_ad', 'err_category');showBrand('category');"
+           type="radio" /> <label for="company_ad_id" id=
+      "lcompany_ad">Professionnel</label>
+  </div>
+  <div style="display: none;" class="comptepro_warning" id=
+      "comptepro_warning">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                    <span class="error">Professionnels, la cr&#233;ation d'un
+                    Compte est GRATUITE et obligatoire pour pouvoir d&#233;poser vos
+                    annonces sur Leboncoin.fr.&nbsp;<a href=
+                                                           "https://comptepro.leboncoin.fr/account/index-pro.html?ca=12_s">En
+                      savoir plus</a></span>
+  </div>
+  <div class="clear"></div>
+  <div id="company_ad_category_warning" style="display:none;" class=
+      "error">
+    Attention aux r&#232;gles sur les annonces en IMMOBILIER
+  </div>
+</div>
+<div class="clear"></div>
+<div id="comptepro_disable_fields">
+<div id="field_ad_type" style="display: block">
+  <div class="labelform">
+    Type d'annonce:
+  </div>
+  <div class="adinput" id="dtype">
+    <div class="radio">
+      <input id="rs" type="radio" name="type" value="s" checked=
+          "checked" onclick=
+                 "typeChanged('s', 'dprice', 'lprice', 'category', 'company_ad');" />
+      <label for="rs">Offres</label>
+    </div>
+    <div class="radio">
+      <input id="rk" type="radio" name="type" value="k" onclick=
+          "typeChanged('k', 'dprice', 'lprice', 'category', 'company_ad');" />
+      <label for="rk">Demandes</label>
+    </div>
+    <div id="warn_type" style="display: none;">
+      <span class="warning" id="err_msg_type"></span>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div id='store_holder'></div>
+<div class="clear"></div>
+<h2>
+  Vos informations
+</h2>
+<div class="subtitle_triangle">
+  &nbsp;
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lname">
+  Votre nom:
+</div>
+<div class="adinput">
+  <input type="text" id="name" name="name" size="35" maxlength="50"
+         value="" />
+  <div class="message warn right" id="err_name" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="warning" id="err_msg_name"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display: none;" id="lsiren">
+  <label>Siren:</label>
+</div>
+<div class="adinput" style="display: none;" id="dsiren">
+  <input id="siren" name="siren" size="15" maxlength="9" type="text"
+         value="" />
+  <div class="message err right" id="err_siren" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_siren"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform">
+  <label>T&#233;l&#233;phone:</label>
+</div>
+<div class="adinput">
+  <input type="text" id="phone" name="phone" size="17" maxlength="50"
+         value="" />
+  <div class="message warn right" id="err_phone" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="warning" id="err_msg_phone"></span>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span>exemple: 0122334455</span>
+  </div>
+  <div class="clear"></div>
+  <div class="checkbox">
+    <input type="checkbox" id="phone_hidden" name="phone_hidden"
+           value="1" /> <label for="phone_hidden">Masquer le num&#233;ro de
+    t&#233;l&#233;phone dans l'annonce.</label>
+  </div>
+  <div class="clear"></div>
+  <div class="checkbox" style="margin-top:0.35em;">
+    <input type="checkbox" id="no_salesmen" name="no_salesmen" value=
+        "1" checked="checked" /> <label for="no_salesmen">Je ne souhaite
+    pas &#234;tre sollicit&#233; par des soci&#233;t&#233;s
+    &#233;trang&#232;res au site leboncoin.fr.</label>
+  </div>
+</div>
+<div class="clear"></div>
+<h2>
+  Votre annonce
+</h2>
+<div class="subtitle_triangle">
+  &nbsp;
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lsubject">
+  <label>Titre de l'annonce:</label>
+</div>
+<div class="adinput">
+  <input type="text" id="subject" name="subject" size="50" maxlength=
+      "50" value="" />
+  <div class="message warn right" id="err_subject" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="warning" id="err_msg_subject"></span>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span><span id="info_title"></span></span>
+  </div>
+  <div class="clear"></div>
+  <div id="title_caption"></div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lclothing_type" style="display: none;">
+  Type:
+</div>
+<div class="AdInput700" style="display: none;" id="dclothing_type">
+  <div class="select">
+    <select name="clothing_type" id="clothing_type" onchange="check_clothing_special_advertiser('clothing_type');showClothingSize('clothing_type','null');">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Femme
+      </option>
+      <option value="2">
+        Femme enceinte
+      </option>
+      <option value="3">
+        Homme
+      </option>
+      <option value="4">
+        Enfant
+      </option>
+    </select>
+  </div>
+  <span id="clothing_special_advertiser"></span>
+  <div class="message info right">
+    <span id="clothing_special_advertiser"></span>
+    <div class="triangle">
+      <span id="clothing_special_advertiser"></span>
+    </div>
+                      <span id="clothing_special_advertiser"><span class=
+                                                                       "sub_message" id="clothing_special_advertiser_child" style=
+                                                                       "display:none;">Cette cat&#233;gorie concerne les enfants &#224;
+                      partir de 3 ans. En dessous de cet &#226;ge, merci de choisir la
+                      cat&#233;gorie &#171;&nbsp;V&#234;tements
+                      b&#233;b&#233;&nbsp;&#187;</span> <span class="sub_message" id=
+                          "clothing_special_advertiser_woman" style="display:none;">Si vous
+                      d&#233;posez des annonces de soutien-gorge, chaussettes, gants
+                      renseignez la taille de vos v&#234;tements dans le titre et dans
+                      le texte de votre annonce</span> <span class="sub_message" id=
+                          "clothing_special_advertiser_man" style="display:none;">Si vous
+                      vendez un pantalon ou une veste renseignez votre gabarit (XS, S,
+                      M ...) et pr&#233;cisez la taille en chiffre dans le titre et
+                      dans le texte de votre annonce</span></span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_clothing_type" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_clothing_type"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lclothing_st" style="display: none;">
+  Taille:
+</div>
+<div class="AdInput100" style="display: none;" id="dclothing_st">
+  <div class="select">
+    <select name="clothing_st" id="clothing_st">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_clothing_st" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_clothing_st"></span>
+  </div>
+</div>
+<a href="javascript:;" onclick=
+    "window.open('http://www.leboncoin.fr/popup_guide_des_tailles.htm','Guide_des_tailles','scrollbars=yes,width=1050,height=656');"
+   class="guideSizeLink" id="guideSizeLink" style="display: none;">Guide
+  des tailles</a>
+<div class="labelform" id="lshoe_type" style="display: none;">
+  Type:
+</div>
+<div class="AdInput100" style="display: none;" id="dshoe_type">
+  <div class="select">
+    <select name="shoe_type" id="shoe_type" onchange=
+        "check_shoe_special_advertiser('shoe_type')">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Femme
+      </option>
+      <option value="2">
+        Homme
+      </option>
+      <option value="3">
+        Enfant
+      </option>
+    </select>
+  </div>
+  <div id="shoe_special_advertiser" class="adinput" style=
+      "color: rgb(0, 0, 255)"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_shoe_type" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_shoe_type"></span>
+  </div>
+</div>
+<div class="labelform" id="lshoe_size" style="display: none;">
+  Pointure:
+</div>
+<div class="AdInput100" style="display: none;" id="dshoe_size">
+  <div class="select">
+    <select name="shoe_size" id="shoe_size">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        16
+      </option>
+      <option value="2">
+        17
+      </option>
+      <option value="3">
+        18
+      </option>
+      <option value="4">
+        19
+      </option>
+      <option value="5">
+        20
+      </option>
+      <option value="6">
+        21
+      </option>
+      <option value="7">
+        22
+      </option>
+      <option value="8">
+        23
+      </option>
+      <option value="9">
+        24
+      </option>
+      <option value="10">
+        25
+      </option>
+      <option value="11">
+        26
+      </option>
+      <option value="12">
+        27
+      </option>
+      <option value="13">
+        28
+      </option>
+      <option value="14">
+        29
+      </option>
+      <option value="15">
+        30
+      </option>
+      <option value="16">
+        31
+      </option>
+      <option value="17">
+        32
+      </option>
+      <option value="18">
+        33
+      </option>
+      <option value="19">
+        34
+      </option>
+      <option value="20">
+        35
+      </option>
+      <option value="21">
+        36
+      </option>
+      <option value="22">
+        37
+      </option>
+      <option value="23">
+        38
+      </option>
+      <option value="24">
+        39
+      </option>
+      <option value="25">
+        40
+      </option>
+      <option value="26">
+        41
+      </option>
+      <option value="27">
+        42
+      </option>
+      <option value="28">
+        43
+      </option>
+      <option value="29">
+        44
+      </option>
+      <option value="30">
+        45
+      </option>
+      <option value="31">
+        46
+      </option>
+      <option value="32">
+        47
+      </option>
+      <option value="33">
+        48
+      </option>
+      <option value="34">
+        49
+      </option>
+      <option value="35">
+        50 et plus
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_shoe_size" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_shoe_size"></span>
+  </div>
+</div>
+<div class="labelform" id="lbaby_age" style="display: none;">
+  Taille:
+</div>
+<div class="AdInput100" style="display: none;" id="dbaby_age">
+  <div class="select">
+    <select name="baby_age" id="baby_age">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="p">
+        Pr&#233;matur&#233;
+      </option>
+      <option value="0">
+        0 mois
+      </option>
+      <option value="1">
+        1 mois
+      </option>
+      <option value="3">
+        3 mois
+      </option>
+      <option value="6">
+        6 mois
+      </option>
+      <option value="9">
+        9 mois
+      </option>
+      <option value="12">
+        12 mois
+      </option>
+      <option value="18">
+        18 mois
+      </option>
+      <option value="24">
+        24 mois
+      </option>
+      <option value="36">
+        36 mois
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_baby_age" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_baby_age"></span>
+  </div>
+</div>
+<div class="labelform" id="ljobcontract" style="display: none;">
+  Type de contrat:
+</div>
+<div class="AdInput100" style="display: none;" id="djobcontract">
+  <div class="select">
+    <select name="jobcontract" id="jobcontract">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        CDD
+      </option>
+      <option value="2">
+        CDI
+      </option>
+      <option value="3">
+        Int&#233;rim
+      </option>
+      <option value="4">
+        Ind&#233;pendant/Freelance
+      </option>
+      <option value="5">
+        Stage/Alternance
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_jobcontract" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_jobcontract"></span>
+  </div>
+</div>
+<div class="labelform" id="ljobstudy" style="display: none;">
+  Niveau d'&#233;tudes:
+</div>
+<div class="AdInput100" style="display: none;" id="djobstudy">
+  <div class="select">
+    <select name="jobstudy" id="jobstudy">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Sans dipl&#244;me
+      </option>
+      <option value="2">
+        BEP/CAP
+      </option>
+      <option value="3">
+        Employ&#233;/Ouvrier sp&#233;cialis&#233;/Bac
+      </option>
+      <option value="4">
+        Technicien/Employ&#233;/Bac+2
+      </option>
+      <option value="5">
+        Agent de ma&#238;trise/Bac+3
+      </option>
+      <option value="6">
+        Ing&#233;nieur/Cadre/Bac+5 ou plus
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_jobstudy" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_jobstudy"></span>
+  </div>
+</div>
+<br />
+<div class="labelform" id="ljobfield" style="display: none;">
+  Secteur d'activit&#233;:
+</div>
+<div class="AdInput100" style="display: none;" id="djobfield">
+  <div class="select">
+    <select name="jobfield" id="jobfield">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Agriculture
+      </option>
+      <option value="2">
+        BTP
+      </option>
+      <option value="3">
+        Commerce/Distribution
+      </option>
+      <option value="4">
+        Banque/Assurance
+      </option>
+      <option value="5">
+        Industrie
+      </option>
+      <option value="6">
+        Immobilier
+      </option>
+      <option value="7">
+        Public/Collectivit&#233;
+      </option>
+      <option value="8">
+        Sant&#233;
+      </option>
+      <option value="9">
+        Services
+      </option>
+      <option value="10">
+        T&#233;l&#233;com/Internet
+      </option>
+      <option value="11">
+        Tourisme
+      </option>
+      <option value="12">
+        Transport
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_jobfield" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_jobfield"></span>
+  </div>
+</div>
+<div class="labelform" id="ljobduty" style="display: none;">
+  Fonction:
+</div>
+<div class="AdInput100" style="display: none;" id="djobduty">
+  <div class="select">
+    <select name="jobduty" id="jobduty">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Administration/Services g&#233;n&#233;raux
+      </option>
+      <option value="2">
+        Commercial/Vente
+      </option>
+      <option value="3">
+        Comptabilit&#233;/Gestion/Finance
+      </option>
+      <option value="4">
+        Conseil/Audit
+      </option>
+      <option value="5">
+        Direction G&#233;n&#233;rale
+      </option>
+      <option value="6">
+        Gardiennage/S&#233;curit&#233;
+      </option>
+      <option value="7">
+        H&#244;tellerie/Restauration
+      </option>
+      <option value="8">
+        Informatique
+      </option>
+      <option value="9">
+        Juridique
+      </option>
+      <option value="10">
+        Logistique/Achat
+      </option>
+      <option value="11">
+        Marketing/Communication
+      </option>
+      <option value="12">
+        M&#233;nage/Entretien
+      </option>
+      <option value="13">
+        Ressources Humaines/Formation
+      </option>
+      <option value="14">
+        Services &#224; la personne
+      </option>
+    </select>
+  </div>
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_jobduty" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_jobduty"></span>
+  </div>
+</div>
+<br />
+<div class="labelform" id="ljobtime" style="display: none;">
+  Travail &#224;:
+</div>
+<div class="AdInput100" style="display: none;" id="djobtime">
+  <input type="radio" name="jobtime" id="jobtime" value="1" checked=
+      "checked" /> Temps plein<br />
+  <input type="radio" name="jobtime" id="jobtime" value="2" /> Temps
+  partiel<br />
+  <div class="adinput"></div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_jobtime" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_jobtime"></span>
+  </div>
+</div>
+<div class="labelform" id="lbrand" style="display: none;">
+  Marque:
+</div>
+<div class="AdInput100" style="display: none;" id="dbrand">
+  <div class="select">
+    <select name="brand" id="brand" onchange="showModel();">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_brand" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_brand"></span>
+  </div>
+</div>
+<div class="labelform" id="lmodel" style="display: none;">
+  Mod&#232;le:
+</div>
+<div class="AdInput160" style="display: none;" id="dmodel">
+  <div class="select">
+    <select name="model" id="model" disabled="disabled">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_model" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_model"></span>
+  </div>
+</div>
+<br />
+<div class="labelform" id="lregdate" style="display: none;">
+  <label>Ann&#233;e mod&#232;le:</label>
+</div>
+<div class="AdInput100" style="display: none;" id="dregdate">
+  <div class="select">
+    <select name="regdate" id="regdate">
+      <option value="">
+        &#171;Choisissez&#187;
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_regdate" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_regdate"></span>
+  </div>
+  <input type="hidden" value="" id="_regdate" />
+</div>
+<div class="labelform" style="display: none;" id="lmileage">
+  <label>Kilom&#233;trage:</label>
+</div>
+<div class="AdInput160" style="display: none;" id="dmileage">
+  <input type="text" name="mileage" id="mileage" value="" maxlength=
+      "6" size="13" /> <span class="unit">km</span>
+  <div class="clear"></div>
+  <div class="message warn below" id="err_mileage" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_mileage"></span>
+  </div>
+</div>
+<div class="labelform" id="lreal_estate_type" style="display: none;">
+  Type de bien:
+</div>
+<div class="AdInput100" style="display: none;" id=
+    "dreal_estate_type">
+  <div class="select">
+    <select name="real_estate_type" id="real_estate_type">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Maison
+      </option>
+      <option value="2">
+        Appartement
+      </option>
+      <option value="3">
+        Terrain
+      </option>
+      <option value="4">
+        Parking
+      </option>
+      <option value="5">
+        Autre
+      </option>
+    </select>
+  </div>
+  <div id="err_real_estate_type" style="display: none;">
+    <span class="error" id="err_msg_real_estate_type"></span>
+  </div>
+</div>
+<div class="labelform" style="display: none;" id="lsquare">
+  <label>Surface:</label>
+</div>
+<div class="AdInput90" style="display: none;" id="dsquare">
+  <input id="square" name="square" size="5" maxlength="6" value=""
+         type="text" /> <span class="unit">m&#178;</span>
+  <div class="clear"></div>
+  <div id="err_square" class="message err below" style=
+      "display: none">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_square"></span>
+  </div>
+</div>
+<div class="labelform" style="display: none;" id="lrooms">
+  <label>Pi&#232;ces:</label>
+</div>
+<div class="AdInput90" style="display: none;" id="drooms">
+  <input id="rooms" name="rooms" size="3" maxlength="2" value=""
+         type="text" />
+  <div class="clear"></div>
+  <div class="message err below" id="err_rooms" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_rooms"></span>
+  </div>
+</div>
+<div class="labelform" id="lfurnished" style="display: none;">
+  Meubl&#233; / Non meubl&#233;:
+</div>
+<div class="AdInput100" style="display: none;" id="dfurnished">
+  <div class="select">
+    <select name="furnished" id="furnished">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Meubl&#233;
+      </option>
+      <option value="2">
+        Non meubl&#233;
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_furnished" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_furnished"></span>
+  </div>
+</div>
+<div class="labelform" id="lenergy_rate" style="display: none;">
+  Classe &#233;nergie:
+</div>
+<div class="AdInput160" style="display: none;" id="denergy_rate">
+  <div class="select">
+    <select name="energy_rate" id="energy_rate">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="a">
+        A (moins de 50)
+      </option>
+      <option value="b">
+        B (de 51 &#224; 90)
+      </option>
+      <option value="c">
+        C (de 91 &#224; 150)
+      </option>
+      <option value="d">
+        D (de 151 &#224; 230)
+      </option>
+      <option value="e">
+        E (de 231 &#224; 330)
+      </option>
+      <option value="f">
+        F (de 331 &#224; 450)
+      </option>
+      <option value="g">
+        G (de 451 &#224; 590)
+      </option>
+      <option value="h">
+        H (de 591 &#224; 750)
+      </option>
+      <option value="i">
+        I (751 et plus)
+      </option>
+      <option value="v">
+        Vierge
+      </option>
+    </select>
+  </div>
+  <div id="err_energy_rate" style="display: none;">
+    <span class="error" id="err_msg_energy_rate"></span>
+  </div>
+</div>
+<div class="labelform" id="lges" style="display: none;">
+  GES:
+</div>
+<div class="AdInput100" style="display: none;" id="dges">
+  <div class="select">
+    <select name="ges" id="ges">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="a">
+        A (moins de 5)
+      </option>
+      <option value="b">
+        B (de 6 &#224; 10)
+      </option>
+      <option value="c">
+        C (de 11 &#224; 20)
+      </option>
+      <option value="d">
+        D (de 21 &#224; 35)
+      </option>
+      <option value="e">
+        E (de 36 &#224; 55)
+      </option>
+      <option value="f">
+        F (de 56 &#224; 80)
+      </option>
+      <option value="g">
+        G (de 81 &#224; 110)
+      </option>
+      <option value="h">
+        H (de 111 &#224; 145)
+      </option>
+      <option value="i">
+        I (146 et plus)
+      </option>
+      <option value="v">
+        Vierge
+      </option>
+    </select>
+  </div>
+  <div id="err_ges" style="display: none;">
+    <span class="error" id="err_msg_ges"></span>
+  </div>
+</div>
+<div class="labelform" style="display: none;" id="lcapacity">
+  <label>Capacit&#233;:</label>
+</div>
+<div class="AdInputNosize" style="display: none;" id="dcapacity">
+  <input id="capacity" name="capacity" size="5" maxlength="4" value=
+      "" type="text" /> <span class="unit">personnes</span>
+  <div class="clear"></div>
+  <div class="message err below" id="err_capacity" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_capacity"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lswimming_pool" style="display: none;">
+  Piscine:
+</div>
+<div class="AdInput100" style="display: none;" id="dswimming_pool">
+  <div class="select">
+    <select name="swimming_pool" id="swimming_pool">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Oui
+      </option>
+      <option value="2">
+        Non
+      </option>
+    </select>
+  </div>
+  <div id="err_swimming_pool" style="display: none;">
+    <span class="error" id="err_msg_swimming_pool"></span>
+  </div>
+</div>
+<div class="labelform" style="display: none;" id="lbedrooms">
+  <label>Pi&#232;ces:</label>
+</div>
+<div class="AdInput90" style="display: none;" id="dbedrooms">
+  <input id="bedrooms" name="bedrooms" size="3" maxlength="2" value=
+      "" type="text" />
+  <div class="clear"></div>
+  <div class="message err below" id="err_bedrooms" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_bedrooms"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="dldv" style="display: none;">
+  <div class="ldv_ad_option_box">
+    <div class="ldv_box" id="ldv">
+      <div class="ldv_logo">
+        <img src="http://www2.leboncoin.fr/img/pack_ldv.png" />
+      </div>
+      <div class="ldv_texte">
+                          <span class="ldv_title"><b class="ldv_title_text">Facilitez
+                            la gestion de votre location gr&#226;ce au Pack Location de
+                            Vacances :</b></span> <span class="more" style=
+          "float:right;margin-right:-150px;margin-top:-17px;"><a href=
+                                                                     "javascript:;" onclick=
+                                                                     "window.open('http://www.leboncoin.fr/popup_ldv_en_savoir_plus.htm','en_savoir_plus_ldv','scrollbars=yes,width=400,height=480');">
+        En savoir plus <img src="http://www2.leboncoin.fr/img/qmark.png" alt=
+          "En savoir plus" /></a></span>
+        <div class="new_block_ldv" style="top:8px;">
+          <div class="content">
+            <div class="triangle left">
+              &nbsp;
+            </div>
+            <div class="text">
+              Nouveau !
+            </div>
+            <div class="triangle below">
+              &nbsp;
+            </div>
+          </div>
+        </div>
+        <div class="ldv_body">
+          <ul>
+            <li>Validit&#233; de votre annonce pendant 6 mois
+            </li>
+            <li>7 Photos suppl&#233;mentaires
+            </li>
+            <li>Modification gratuite et illimit&#233;e de votre
+              annonce
+            </li>
+            <li>Une remont&#233;e en t&#234;te de liste hebdomadaire
+              pendant 6 mois
+            </li>
+          </ul>
+        </div>
+        <div class="ldv_price" style="display: block;">
+          <input name="cmd_ldv" id="cmd_ldv" type="checkbox" onclick=
+              "ldv_update_box(0,0,0);" />&nbsp;<b>120,00&nbsp;&#8364;&nbsp;(TTC)&nbsp;6&nbsp;mois</b>&nbsp;(Soit&nbsp;l'&#233;quivalent&nbsp;de&nbsp;<b class="ldv_monthly">20,00&nbsp;&#8364;</b>/mois)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="davailability" style="display: none;">
+<div id="err_availability" style="display: none;">
+  <span class="error" id="err_msg_availability"></span>
+</div>
+<div class="clear"></div>
+<div class="davailability-list header">
+  <div class="date">
+    Du
+  </div>
+  <div class="date">
+    Au
+  </div>
+  <div class="price">
+    Prix/Semaine
+  </div>
+  <div class="more">
+    <a href="#" onclick=
+        "return window.open('http://www.leboncoin.fr/popup_calendrier_de_disponibilites_et_tarifs.htm','en_savoir_plus_calendrier_de_disponibilites_et_tarifs','scrollbars=yes,width=400,height=480');">
+      En savoir plus <img src="http://www2.leboncoin.fr/img/qmark.png" alt=
+        "En savoir plus" /></a>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform no-top">
+  Tarifs et Disponibilit&#233;s:
+</div>
+<div class="davailability-list" id="davailability-list">
+<div id="datespicker_0" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_0" name=
+        "datepicker_begin_date_0" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_0" name="availability_begin_date_0"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_0" name=
+        "datepicker_end_date_0" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_0" name="availability_end_date_0"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_0" name=
+        "availability_price_0" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_0" class="action">
+                          <span class="add" id="availability_add_0" title="Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_0">Effacer</span>
+  </div>
+  <span id="availability_clean_0"></span>
+  <div id="availability_edited_0" class="action none">
+                          <span id="availability_clean_0">
+                            <span id="availability_edit_0">Modifier</span>
+                            <span id="availability_remove_0">Supprimer</span>
+                          </span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_0" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_0"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_1" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_1" name=
+        "datepicker_begin_date_1" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_1" name="availability_begin_date_1"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_1" name=
+        "datepicker_end_date_1" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_1" name="availability_end_date_1"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_1" name=
+        "availability_price_1" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_1" class="action">
+                          <span class="add" id="availability_add_1" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_1">Effacer</span>
+  </div>
+  <div id="availability_edited_1" class="action none">
+    <span id="availability_edit_1">Modifier</span> <span id=
+                                                             "availability_remove_1">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_1" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_1"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_2" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_2" name=
+        "datepicker_begin_date_2" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_2" name="availability_begin_date_2"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_2" name=
+        "datepicker_end_date_2" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_2" name="availability_end_date_2"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_2" name=
+        "availability_price_2" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_2" class="action">
+                          <span class="add" id="availability_add_2" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_2">Effacer</span>
+  </div>
+  <div id="availability_edited_2" class="action none">
+    <span id="availability_edit_2">Modifier</span> <span id=
+                                                             "availability_remove_2">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_2" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_2"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_3" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_3" name=
+        "datepicker_begin_date_3" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_3" name="availability_begin_date_3"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_3" name=
+        "datepicker_end_date_3" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_3" name="availability_end_date_3"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_3" name=
+        "availability_price_3" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_3" class="action">
+                          <span class="add" id="availability_add_3" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_3">Effacer</span>
+  </div>
+  <div id="availability_edited_3" class="action none">
+    <span id="availability_edit_3">Modifier</span> <span id=
+                                                             "availability_remove_3">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_3" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_3"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_4" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_4" name=
+        "datepicker_begin_date_4" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_4" name="availability_begin_date_4"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_4" name=
+        "datepicker_end_date_4" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_4" name="availability_end_date_4"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_4" name=
+        "availability_price_4" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_4" class="action">
+                          <span class="add" id="availability_add_4" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_4">Effacer</span>
+  </div>
+  <div id="availability_edited_4" class="action none">
+    <span id="availability_edit_4">Modifier</span> <span id=
+                                                             "availability_remove_4">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_4" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_4"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_5" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_5" name=
+        "datepicker_begin_date_5" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_5" name="availability_begin_date_5"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_5" name=
+        "datepicker_end_date_5" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_5" name="availability_end_date_5"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_5" name=
+        "availability_price_5" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_5" class="action">
+                          <span class="add" id="availability_add_5" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_5">Effacer</span>
+  </div>
+  <div id="availability_edited_5" class="action none">
+    <span id="availability_edit_5">Modifier</span> <span id=
+                                                             "availability_remove_5">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_5" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_5"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_6" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_6" name=
+        "datepicker_begin_date_6" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_6" name="availability_begin_date_6"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_6" name=
+        "datepicker_end_date_6" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_6" name="availability_end_date_6"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_6" name=
+        "availability_price_6" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_6" class="action">
+                          <span class="add" id="availability_add_6" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_6">Effacer</span>
+  </div>
+  <div id="availability_edited_6" class="action none">
+    <span id="availability_edit_6">Modifier</span> <span id=
+                                                             "availability_remove_6">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_6" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_6"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_7" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_7" name=
+        "datepicker_begin_date_7" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_7" name="availability_begin_date_7"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_7" name=
+        "datepicker_end_date_7" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_7" name="availability_end_date_7"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_7" name=
+        "availability_price_7" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_7" class="action">
+                          <span class="add" id="availability_add_7" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_7">Effacer</span>
+  </div>
+  <div id="availability_edited_7" class="action none">
+    <span id="availability_edit_7">Modifier</span> <span id=
+                                                             "availability_remove_7">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_7" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_7"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_8" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_8" name=
+        "datepicker_begin_date_8" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_8" name="availability_begin_date_8"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_8" name=
+        "datepicker_end_date_8" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_8" name="availability_end_date_8"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_8" name=
+        "availability_price_8" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_8" class="action">
+                          <span class="add" id="availability_add_8" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_8">Effacer</span>
+  </div>
+  <div id="availability_edited_8" class="action none">
+    <span id="availability_edit_8">Modifier</span> <span id=
+                                                             "availability_remove_8">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_8" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_8"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_9" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_9" name=
+        "datepicker_begin_date_9" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_9" name="availability_begin_date_9"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_9" name=
+        "datepicker_end_date_9" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_9" name="availability_end_date_9"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_9" name=
+        "availability_price_9" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_9" class="action">
+                          <span class="add" id="availability_add_9" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_9">Effacer</span>
+  </div>
+  <div id="availability_edited_9" class="action none">
+    <span id="availability_edit_9">Modifier</span> <span id=
+                                                             "availability_remove_9">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_9" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_availability_9"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_10" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_10" name=
+        "datepicker_begin_date_10" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_10" name=
+                                        "availability_begin_date_10" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_10" name=
+        "datepicker_end_date_10" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_10" name="availability_end_date_10"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_10" name=
+        "availability_price_10" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_10" class="action">
+                          <span class="add" id="availability_add_10" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_10">Effacer</span>
+  </div>
+  <div id="availability_edited_10" class="action none">
+    <span id="availability_edit_10">Modifier</span> <span id=
+                                                              "availability_remove_10">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_10" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_10"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_11" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_11" name=
+        "datepicker_begin_date_11" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_11" name=
+                                        "availability_begin_date_11" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_11" name=
+        "datepicker_end_date_11" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_11" name="availability_end_date_11"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_11" name=
+        "availability_price_11" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_11" class="action">
+                          <span class="add" id="availability_add_11" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_11">Effacer</span>
+  </div>
+  <div id="availability_edited_11" class="action none">
+    <span id="availability_edit_11">Modifier</span> <span id=
+                                                              "availability_remove_11">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_11" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_11"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_12" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_12" name=
+        "datepicker_begin_date_12" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_12" name=
+                                        "availability_begin_date_12" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_12" name=
+        "datepicker_end_date_12" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_12" name="availability_end_date_12"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_12" name=
+        "availability_price_12" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_12" class="action">
+                          <span class="add" id="availability_add_12" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_12">Effacer</span>
+  </div>
+  <div id="availability_edited_12" class="action none">
+    <span id="availability_edit_12">Modifier</span> <span id=
+                                                              "availability_remove_12">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_12" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_12"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_13" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_13" name=
+        "datepicker_begin_date_13" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_13" name=
+                                        "availability_begin_date_13" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_13" name=
+        "datepicker_end_date_13" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_13" name="availability_end_date_13"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_13" name=
+        "availability_price_13" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_13" class="action">
+                          <span class="add" id="availability_add_13" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_13">Effacer</span>
+  </div>
+  <div id="availability_edited_13" class="action none">
+    <span id="availability_edit_13">Modifier</span> <span id=
+                                                              "availability_remove_13">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_13" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_13"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_14" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_14" name=
+        "datepicker_begin_date_14" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_14" name=
+                                        "availability_begin_date_14" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_14" name=
+        "datepicker_end_date_14" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_14" name="availability_end_date_14"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_14" name=
+        "availability_price_14" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_14" class="action">
+                          <span class="add" id="availability_add_14" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_14">Effacer</span>
+  </div>
+  <div id="availability_edited_14" class="action none">
+    <span id="availability_edit_14">Modifier</span> <span id=
+                                                              "availability_remove_14">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_14" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_14"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_15" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_15" name=
+        "datepicker_begin_date_15" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_15" name=
+                                        "availability_begin_date_15" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_15" name=
+        "datepicker_end_date_15" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_15" name="availability_end_date_15"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_15" name=
+        "availability_price_15" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_15" class="action">
+                          <span class="add" id="availability_add_15" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_15">Effacer</span>
+  </div>
+  <div id="availability_edited_15" class="action none">
+    <span id="availability_edit_15">Modifier</span> <span id=
+                                                              "availability_remove_15">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_15" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_15"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_16" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_16" name=
+        "datepicker_begin_date_16" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_16" name=
+                                        "availability_begin_date_16" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_16" name=
+        "datepicker_end_date_16" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_16" name="availability_end_date_16"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_16" name=
+        "availability_price_16" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_16" class="action">
+                          <span class="add" id="availability_add_16" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_16">Effacer</span>
+  </div>
+  <div id="availability_edited_16" class="action none">
+    <span id="availability_edit_16">Modifier</span> <span id=
+                                                              "availability_remove_16">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_16" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_16"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_17" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_17" name=
+        "datepicker_begin_date_17" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_17" name=
+                                        "availability_begin_date_17" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_17" name=
+        "datepicker_end_date_17" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_17" name="availability_end_date_17"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_17" name=
+        "availability_price_17" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_17" class="action">
+                          <span class="add" id="availability_add_17" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_17">Effacer</span>
+  </div>
+  <div id="availability_edited_17" class="action none">
+    <span id="availability_edit_17">Modifier</span> <span id=
+                                                              "availability_remove_17">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_17" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_17"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_18" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_18" name=
+        "datepicker_begin_date_18" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_18" name=
+                                        "availability_begin_date_18" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_18" name=
+        "datepicker_end_date_18" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_18" name="availability_end_date_18"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_18" name=
+        "availability_price_18" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_18" class="action">
+                          <span class="add" id="availability_add_18" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_18">Effacer</span>
+  </div>
+  <div id="availability_edited_18" class="action none">
+    <span id="availability_edit_18">Modifier</span> <span id=
+                                                              "availability_remove_18">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_18" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_18"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_19" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_19" name=
+        "datepicker_begin_date_19" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_19" name=
+                                        "availability_begin_date_19" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_19" name=
+        "datepicker_end_date_19" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_19" name="availability_end_date_19"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_19" name=
+        "availability_price_19" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_19" class="action">
+                          <span class="add" id="availability_add_19" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_19">Effacer</span>
+  </div>
+  <div id="availability_edited_19" class="action none">
+    <span id="availability_edit_19">Modifier</span> <span id=
+                                                              "availability_remove_19">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_19" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_19"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_20" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_20" name=
+        "datepicker_begin_date_20" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_20" name=
+                                        "availability_begin_date_20" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_20" name=
+        "datepicker_end_date_20" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_20" name="availability_end_date_20"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_20" name=
+        "availability_price_20" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_20" class="action">
+                          <span class="add" id="availability_add_20" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_20">Effacer</span>
+  </div>
+  <div id="availability_edited_20" class="action none">
+    <span id="availability_edit_20">Modifier</span> <span id=
+                                                              "availability_remove_20">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_20" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_20"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_21" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_21" name=
+        "datepicker_begin_date_21" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_21" name=
+                                        "availability_begin_date_21" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_21" name=
+        "datepicker_end_date_21" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_21" name="availability_end_date_21"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_21" name=
+        "availability_price_21" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_21" class="action">
+                          <span class="add" id="availability_add_21" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_21">Effacer</span>
+  </div>
+  <div id="availability_edited_21" class="action none">
+    <span id="availability_edit_21">Modifier</span> <span id=
+                                                              "availability_remove_21">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_21" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_21"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_22" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_22" name=
+        "datepicker_begin_date_22" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_22" name=
+                                        "availability_begin_date_22" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_22" name=
+        "datepicker_end_date_22" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_22" name="availability_end_date_22"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_22" name=
+        "availability_price_22" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_22" class="action">
+                          <span class="add" id="availability_add_22" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_22">Effacer</span>
+  </div>
+  <div id="availability_edited_22" class="action none">
+    <span id="availability_edit_22">Modifier</span> <span id=
+                                                              "availability_remove_22">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_22" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_22"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="datespicker_23" class="datespickers none">
+  <div class="date">
+    <input type="text" id="datepicker_begin_date_23" name=
+        "datepicker_begin_date_23" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_begin_date_23" name=
+                                        "availability_begin_date_23" maxlength="10" value="" />
+  </div>
+  <div class="date">
+    <input type="text" id="datepicker_end_date_23" name=
+        "datepicker_end_date_23" maxlength="10" value="" readonly=
+               "readonly" /> <input type="hidden" id=
+      "availability_end_date_23" name="availability_end_date_23"
+                                    maxlength="10" value="" />
+  </div>
+  <div class="price">
+    <input type="text" id="availability_price_23" name=
+        "availability_price_23" maxlength="5" value="" readonly=
+               "readonly" /><span class="unit">&#8364;</span>
+  </div>
+  <div id="availability_edit_23" class="action">
+                          <span class="add" id="availability_add_23" title=
+                              "Valider cette ligne de disponibilit&#233;s et tarifs."><b class="add_new">
+                            +</b> <b class="add_edit">OK</b></span> <span id=
+                                                                              "availability_clean_23">Effacer</span>
+  </div>
+  <div id="availability_edited_23" class="action none">
+    <span id="availability_edit_23">Modifier</span> <span id=
+                                                              "availability_remove_23">Supprimer</span>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below availability" id=
+      "err_availability_23" style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <div class="triangle ter">
+      &nbsp;
+    </div>
+                          <span class="error" id=
+                              "err_msg_availability_23"></span>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display: none;" id="lprice_min"></div>
+<div class="AdInputNosize" style="display: none;" id="dprice_min">
+  <span class="unit">Min:</span><input name="price_min" size="5"
+                                       maxlength="5" value="" type="text" id="price_min" /><span class=
+                                                                                                     "unit">&#8364;</span>
+</div>
+<div class="AdInputNosize" style="display: none;" id="dprice_max">
+  <span class="unit">Max:</span><input name="price_max" size="5"
+                                       maxlength="5" value="" type="text" id="price_max" /><span class=
+                                                                                                     "unit">&#8364;</span>
+</div>
+<div class="clear"></div>
+<div class="AdInput400 price_min_max_message">
+  <div class="message err below price_min_max" id="err_price_range"
+       style="display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_price_min"></span>
+  </div>
+  <div class="message info below price_min_max">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <div class="triangle bis">
+      &nbsp;
+    </div>
+                      <span>Le prix minimum et maximum par semaine est le prix
+                      qui sera affich&#233; dans la liste des annonces. Prenez soin de
+                      le compl&#233;ter.</span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display: none;" id="lcubic_capacity">
+  <label>Cylindr&#233;e:</label>
+</div>
+<div class="AdInputNosize" style="display: none;" id=
+    "dcubic_capacity">
+  <input id="cubic_capacity" name="cubic_capacity" size="5"
+         maxlength="4" value="" type="text" /> <span class=
+                                                         "unit">cm&#179;</span>
+  <div id="err_cubic_capacity" style="display: none">
+    <span class="error" id="err_msg_cubic_capacity"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display: none;" id="lfuel">
+  &nbsp;&nbsp;&nbsp;<b>Carburant:</b>
+</div>
+<div class="AdInput100" style="display: none;" id="dfuel">
+  <div class="select">
+    <select name="fuel" id="fuel">
+      <option value="">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Essence
+      </option>
+      <option value="2">
+        Diesel
+      </option>
+      <option value="3">
+        GPL
+      </option>
+      <option value="5">
+        Electrique
+      </option>
+      <option value="4">
+        Autre
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_fuel" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_fuel"></span>
+  </div>
+</div>
+<div class="labelform" id="lgearbox" style="display: none;">
+  Bo&#238;te de vitesse:
+</div>
+<div class="AdInput160" style="display: none;" id="dgearbox">
+  <div class="select">
+    <select name="gearbox" id="gearbox">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Manuelle
+      </option>
+      <option value="2">
+        Automatique
+      </option>
+    </select>
+  </div>
+  <div class="clear"></div>
+  <div class="message err below" id="err_gearbox" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_gearbox"></span>
+  </div>
+</div>
+<div class="labelform" style="display:none" id="lanimal_type">
+  Type d'animal:
+</div>
+<div class="adinput" style="display:none" id="danimal_type">
+  <div class="select">
+    <select name="animal_type" id="animal_type" onchange=
+        "showAnimalFields('animal_type'); resetAnimalFields();">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Chiens &amp; Chats
+      </option>
+      <option value="2">
+        Autres animaux
+      </option>
+      <option value="3">
+        Accessoires
+      </option>
+    </select>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                      <span id="info_animal_type">Attention, de nouvelles
+                      mentions obligatoires relatives &#224; la publication d'annonces
+                      de cession de chiens ou de chats sont en vigueur.<br />
+                      Pensez &#224; bien renseigner tous les champs du formulaire
+                      ci-dessous.</span>
+  </div>
+  <div class="message err right" id="err_animal_type" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_animal_type"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lanimal_race" style=
+    "display:none;line-height: 12px;">
+  Appartenance &#224; une race:
+</div>
+<div class="adinput" style="display:none" id="danimal_race">
+  <div class="select">
+    <select name="animal_race" id="animal_race">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        LOF / LOOF
+      </option>
+      <option value="2">
+        D'apparence/type/non LOF/non LOOF
+      </option>
+    </select>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                      <span id="info_animal_race">Pour &#234;tre de "pure race",
+                      un animal doit obligatoirement &#234;tre inscrit &#224; un livre
+                      g&#233;n&#233;alogique reconnu par le ministre charg&#233; de
+                      l'agriculture (LOF/LOOF).</span>
+  </div>
+  <div class="message err right" id="err_animal_race" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_animal_race"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" style="display:none" id="danimal_age">
+  Age:
+</div>
+<div class="adinput" style="display:none" id="danimal_age">
+  <div class="select">
+    <select name="animal_age" id="animal_age">
+      <option value="0" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Plus de 8 semaines (sevr&#233;)
+      </option>
+      <option value="2">
+        Moins de 8 semaines (&#224; r&#233;server)
+      </option>
+    </select>
+  </div>
+  <div class="message err right" id="err_animal_age" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_animal_age"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lvaccinated_animal" style="display: none">
+  Vaccin&#233;:
+</div>
+<div class="adinput" style="display:none;" id="dvaccinated_animal">
+  <div class="radio">
+    <input id="vaccinated_animal_y" type="radio" name=
+        "vaccinated_animal" value="1" /> <label for="vaccinated_animal_y"
+                                                id="lvaccinated_animal_y">Oui</label>&nbsp; <input id=
+                                                                                                       "vaccinated_animal_n" type="radio" name="vaccinated_animal"
+                                                                                                   value="2" /> <label for="vaccinated_animal_n" id=
+      "lvaccinated_animal_n">Non</label>&nbsp;
+  </div>
+  <div class="message err right" id="err_vaccinated_animal" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_vaccinated_animal"></span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lanimal_id" style="display:none">
+  Identification:
+</div>
+<div class="adinput" style="display:none;" id="danimal_id">
+  <div class="checkbox" style="display:inline">
+    <input type="checkbox" id="tattooed_animal" name=
+        "tattooed_animal" value="1" /> <label for=
+                                                  "tattooed_animal">Tatou&#233;</label>
+  </div>
+  <div class="checkbox" style="display:inline">
+    <input type="checkbox" id="animal_chips" name="animal_chips"
+           value="1" /> <label for="animal_chips">Puc&#233;</label>
+    <div class="message err below" id="err_animal_chips" style=
+        "display: none;">
+      <div class="triangle">
+        &nbsp;
+      </div>
+                        <span class="message error below" id=
+                            "err_msg_animal_chips"></span>
+    </div>
+  </div>
+</div>
+<div class="labelform" style="clear:left;" id="lbody">
+  <label>Texte de l'annonce:</label>
+</div>
+<div class="adinput">
+  <textarea cols="50" rows="10" name="body" id="body"></textarea>
+  <div id="orig_msg"></div>
+  <div class="message warn right" id="err_body" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="warning" id="err_msg_body"></span>
+  </div>
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                      <span id="body_tips"><span id="category_tips"></span>
+                      Indiquez dans l'annonce si vous d&#233;sirez &#234;tre
+                      contact&#233;(e) uniquement par t&#233;l&#233;phone.</span>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lcustom_ref" style="display: none;">
+  R&#233;f&#233;rence:
+</div>
+<div class="adinput" style="display: none;" id="dcustom_ref">
+  <input type="text" id="custom_ref" name="custom_ref" size="20"
+         maxlength="20" value="" />
+  <div class="message info right">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                      <span>pr&#233;cisez votre r&#233;f&#233;rence-produit
+                      interne.</span>
+  </div>
+  <div class="message err right" id="err_custom_ref" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="warning" id="err_msg_custom_ref"></span>
+  </div>
+  <div class="clear"></div>
+  (optionnel)
+</div>
+<div id="price_box" style="display: block;">
+  <div class="labelform" id="lprice" style="display: block;">
+    Prix:
+  </div>
+  <div class="adinput" id="dprice" style="display: block;">
+    <input type="text" name="price" size="10" maxlength="8" value=""
+           id="price" /> <span class="unit">&#8364;</span>
+    <div class="message info right">
+      <div class="triangle">
+        &nbsp;
+      </div>
+                        <span>Le champ prix doit contenir des nombres entiers
+                        (pas de point, de virgule ou d'espace)</span>
+    </div>
+    <div class="message warn right" id="err_price" style=
+        "display: none;">
+      <div class="triangle">
+        &nbsp;
+      </div>
+      <span id="err_msg_price"></span>
+    </div>
+    <div class="clear"></div>
+                      <span id="carpool_price_help_link"
+                            style="display: none;"><a onclick=
+                                                          "window.open('http://www.leboncoin.fr/carpool_price_help.htm','Quel_prix_demander_pour_mon_covoiturage_?','scrollbars=yes,width=450,height=500');"
+                                                      href="javascript:;">Comment d&#233;finir mon prix ?</a></span>
+    <label id="label_price">(optionnel)</label>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="labelform" id="lcharges_included" style="display: none;">
+  <label>Charges comprises:</label>
+</div>
+<div class="adinput" style="display: none;" id="dcharges_included">
+  <div class="select">
+    <select name="charges_included" id="charges_included">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Oui
+      </option>
+      <option value="2">
+        Non
+      </option>
+    </select>
+  </div>
+  <div class="message err right" id="err_charges_included" style=
+      "display: none;">
+    <div class="triangle">
+      &nbsp;
+    </div>
+    <span class="error" id="err_msg_charges_included"></span>
+  </div>
+  <div class="clear"></div>
+  (optionnel)
+</div>
+<div class="labelform" id="lfai_included" style="display: none;">
+  <label>Frais d'agence inclus:</label>
+</div>
+<div class="adinput" style="display: none;" id="dfai_included">
+  <div class="select">
+    <select name="fai_included" id="fai_included">
+      <option value="" selected="selected">
+        &#171;Choisissez&#187;
+      </option>
+      <option value="1">
+        Oui
+      </option>
+      <option value="2">
+        Non
+      </option>
+    </select>
+    <div class="clear"></div>
+    (optionnel)
+  </div>
+  <div id="err_fai_included" style="display: none;">
+    <span class="error" id="err_msg_fai_included"></span>
+  </div>
+  <br />
+  <br />
+</div>
+<a name="photo_principale_anchor"></a>
+<div class="labelform">
+  <label>Photo&nbsp;principale:</label>
+</div>
+<div class="adinput photosup status_autosubmit_true" id=
+    "image_base_pack">
+  <div class="text">
+    Une annonce avec photo est 7 fois plus consult&#233;e qu'une
+    annonce sans photo.
+  </div>
+  <div class="image_box" id="image_box_0">
+    <div class="title">
+      Photo principale
+    </div>
+    <div class="photo upload_button">
+      <img src="" />
+      <div class="nb">
+        <div class="top radius">
+          &nbsp;
+        </div>
+        <div class="value radius">
+          1
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <div class="photosup_button">
+        <span class="photosup_label">Choisir le fichier</span>
+      </div>
+    </div>
+    <input type="file" name="image_1" class="photosup_input_file upload_input" accept="image/bmp,image/gif,image/png,image/jpeg,image/x-ms-bmp" />
+  </div>
+  <div id="photosup_layout_pro_crlf_target"></div>
+  <div id="photosup_layout_pro_crlf_target"></div>
+  <div id="photosup_layout_pro_crlf_target"></div>
+  <div class="image_box" id="image_box_1">
+    <div class="title">
+      Photo 2
+    </div>
+    <div class="photo upload_button">
+      <img src="" />
+      <div class="nb">
+        <div class="top radius">
+          &nbsp;
+        </div>
+        <div class="value radius">
+          2
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <div class="photosup_button">
+        <span class="photosup_label">Choisir le fichier</span>
+      </div>
+    </div>
+    <input type="file" name="image_2" class="photosup_input_file upload_input" accept="image/bmp,image/gif,image/png,image/jpeg,image/x-ms-bmp" />
+  </div>
+  <div class="image_box" id="image_box_2">
+    <div class="title">
+      Photo 3
+    </div>
+    <div class="photo upload_button">
+      <img src="" />
+      <div class="nb">
+        <div class="top radius">
+          &nbsp;
+        </div>
+        <div class="value radius">
+          3
+        </div>
+      </div>
+    </div>
+    <div class="button">
+      <div class="photosup_button">
+        <span class="photosup_label">Choisir le fichier</span>
+      </div>
+    </div>
+    <input type="file" name="image_3" class="photosup_input_file upload_input" accept="image/bmp,image/gif,image/png,image/jpeg,image/x-ms-bmp" />
+  </div>
+</div>
+<div class="clear"></div>
+<div id="photosup_layout_part_crlf_target">
+  <div class="clear" id="photosup_layout_crlf"></div>
+</div>
+<noscript>
+  <div class="labelform">
+    &nbsp;
+  </div>
+  <div class="adinput">
+    <div class="message err below">
+      <div class="triangle">
+        &nbsp;
+      </div>
+                        <span class="error">Pour associer des photos &#224; votre
+                        annonce, vous devez autoriser Javascript dans les param&#232;tres
+                        de votre navigateur.</span>
+    </div>
+  </div>
+</noscript>
+<div class="clear"></div>
+<div class="labelform">
+  &nbsp;
+</div>
+<div class="adinput" id="note_photosup_anchor" style=
+    "display: none;">
+  <div class="message info below">
+    <div class="triangle">
+      &nbsp;
+    </div>
+                      <span>Les photos au format jpg, gif, png et bmp sont
+                      ajust&#233;es automatiquement.<br />
+                      Le t&#233;l&#233;chargement de photo en bas d&#233;bit peut
+                      prendre du temps.</span>
+  </div>
+</div>
+<div class="clear"></div>
+<script type="text/javascript">
+  can_check_photosup = true;
+
+</script> <a name="photosup_anchor"></a>
+<div class="labelform">
+  &nbsp;
+</div>
+<div class="adinput" id="submit-buttoms">
+  <input type="submit" name="validate" value="Valider" class="button" />
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<% end %>
+<script type="text/javascript">
+  function check_clothing_special_advertiser(clothing_type_id)
+  {
+    var $clothing_type_AdInput = $("#dclothing_type");
+    var clothing_type = document.getElementById(clothing_type_id);
+    var clothing_advertiser = document.getElementById("clothing_special_advertiser");
+    var dbg = clothing_type.selectedIndex;
+    var $linkPopupGuideSize = $('a.guideSizeLink');
+
+    if(clothing_type.options[clothing_type.selectedIndex].text == "Femme" || clothing_type.options[clothing_type.selectedIndex].text == "Femme enceinte") {
+      $clothing_type_AdInput.find('.sub_message').hide();
+      $('#clothing_special_advertiser_woman').show();
+      $clothing_type_AdInput.addClass('message_info');
+
+    } else if(clothing_type.options[clothing_type.selectedIndex].text == "Homme") {
+      $clothing_type_AdInput.find('.sub_message').hide();
+      $('#clothing_special_advertiser_man').show();
+      $clothing_type_AdInput.addClass('message_info');
+
+    } else if(clothing_type.options[clothing_type.selectedIndex].text == "Enfant") {
+      $clothing_type_AdInput.find('.sub_message').hide();
+      $('#clothing_special_advertiser_child').show();
+      $clothing_type_AdInput.addClass('message_info');
+
+    } else {
+      $clothing_type_AdInput.removeClass('message_info');
+    }
+
+
+    if(clothing_type.options[clothing_type.selectedIndex].text == "Femme" || clothing_type.options[clothing_type.selectedIndex].text == "Femme enceinte" || clothing_type.options[clothing_type.selectedIndex].text == "Homme"){
+      $linkPopupGuideSize.show();
+    }else{
+      $linkPopupGuideSize.hide();
+    }
+  }
+
+  function check_shoe_special_advertiser(shoe_type_id)
+  {
+    var shoe_type = document.getElementById(shoe_type_id);
+
+    var shoe_advertiser = document.getElementById("shoe_special_advertiser");
+
+    var dbg = shoe_type.selectedIndex;
+
+    if(shoe_type.options[shoe_type.selectedIndex].text == "Enfant") {
+      shoe_advertiser.innerHTML="Si la taille des chaussures que vous proposez est inf&eacute;rieure &agrave; 16, merci de d&eacute;poser votre annonce dans la cat&eacute;gorie &laquo;&nbsp;V&ecirc;tements b&eacute;b&eacute;&nbsp;&raquo;"
+      $('#err_shoe_size').addClass('shoe_special_blank');
+    } else {
+      shoe_advertiser.innerHTML = "";
+      $('#err_shoe_size').removeClass('shoe_special_blank');
+    }
+  }
+
+
+  if (window.attachEvent && !focused)
+    window.attachEvent("onload", scrollToTop);
+
+
+  if (document.getElementById('category'))
+    showOriginal(document.getElementById('category').value);
+
+  var uploaded_images = 0;
+
+  setJavascriptON();
+
+//  checkEmail();
+
+  showCategory('category', 'carextras', 'company_ad', 'err_category', null, 0, 0);
+
+
+  $(photosup_update_box("err_photosup_no_specific_image"));
+
+
+  // -->
+  //]]>
+
+</script>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>

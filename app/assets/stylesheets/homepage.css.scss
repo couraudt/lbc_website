@@ -1,0 +1,1437 @@
+#ContainerMain {
+  input,select,textarea {
+    font-family: Verdana,"DejaVu Sans","Bitstream Vera Sans",Geneva,sans-serif;
+    font-size: 12px;
+  }
+
+  .page_align {
+    height: auto;
+    min-height: 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  .page_width {
+    padding: 0 5px;
+    background: #FFFFEB;
+    cursor: default;
+  }
+
+  .page_width {
+    margin: auto;
+    position: relative;
+    text-align: left;
+    width: 980px;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 7px 0 0 0;
+    padding: 3px 0 0 0;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0 3px 0;
+    padding: 0;
+  }
+
+  h3 {
+    display: inline;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  a {
+    font-weight: bold;
+    color: #369;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #936;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    border: 0;
+  }
+
+  form {
+    display: inline;
+  }
+
+  form p {
+    margin-top: 5px;
+    clear: left;
+  }
+
+  input,select {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  br {
+    clear: left;
+  }
+
+  .red {
+    color: #C00;
+  }
+
+  .error {
+    border: 1px solid #C00;
+    color: #C00;
+    font-weight: bold;
+    padding: 1px 5px 2px 5px;
+    margin: 3px 0 5px 0;
+    display: block;
+    float: left;
+    clear: both;
+  }
+
+  .passwd_error {
+    border: 1px solid #C00;
+    color: #C00;
+    font-weight: bold;
+    padding: 1px 5px 2px 5px;
+    margin: 0 0 5px 0;
+    display: inline-block;
+    clear: both;
+  }
+
+  .error_top_list {
+    border: 1px solid #c00;
+    color: #C00;
+    font-weight: bold;
+    padding: 1px 5px 2px 5px;
+    margin: 3px 0 5px 0;
+    clear: both;
+  }
+
+  .maintext {
+    line-height: 135%;
+  }
+
+  ul {
+    list-style-type: square;
+  }
+
+  .fake_h3 {
+    display: inline;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  .readonly {
+    background: #CCC;
+  }
+
+  div.clear {
+    clear: both;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table td,table th {
+    padding: 0;
+  }
+
+  .content-border {
+    background: #F60;
+    padding: 3px 0;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+  }
+
+  .ua_IE6 .content-border,.ua_IE7 .content-border,.ua_IE8 .content-border {
+    background: none;
+    border-width: 3px 0;
+    border-style: solid;
+    border-color: #F60;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .content-color {
+    background: #FFFFEB;
+    padding: 10px 20px;
+  }
+
+  header,nav {
+    display: block;
+  }
+
+  #ContainerMain {
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  .none {
+    display: none;
+  }
+
+  span.gallery {
+    margin: -2px;
+  }
+
+  div#pro_login div {
+    font-size: 11px;
+    padding-left: 8px;
+    padding-top: 3px;
+    font-family: verdana;
+  }
+
+  div#pro_login div span.pro_userinfo {
+    color: Black;
+  }
+
+  div#pro_login div#pro_logout {
+    color: White;
+    font-weight: bold;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  div#pro_login div#pro_logout a {
+    color: White;
+    font-weight: bold;
+  }
+
+  #headermain {
+    height: 60px;
+  }
+
+  div#account_login {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    height: 35px;
+    background: none no-repeat scroll 0 0 #3F3F44;
+    border-radius: 0 0 7px 7px;
+    -moz-border-radius: 0 0 7px 7px;
+    -webkit-border-radius: 0 0 7px 7px;
+    -o-border-radius: 0 0 7px 7px;
+    -ms-border-radius: 0 0 7px 7px;
+    padding-top: 8px;
+    cursor: pointer;
+  }
+
+  div#account_login.long_v {
+    width: 435px;
+  }
+
+  div#account_login.short_v {
+    width: 216px;
+  }
+
+  div#account_login div {
+    float: left;
+    width: 190px;
+    color: #FFF;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  div#account_login #account_creditinfo {
+    float: left;
+    width: 230px;
+    color: #FFF;
+    text-align: left;
+    padding-left: 5px;
+  }
+
+  div#account_login div span.account_userinfo {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  div#account_login div#account_logout {
+    color: White;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  div#account_login div#account_logout a {
+    color: White;
+    font-weight: normal;
+    font-size: 11px;
+  }
+
+  div#account_creditinfo ul {
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-position: inside;
+    list-style-type: disc;
+  }
+
+  div#account_creditinfo ul li {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  div#account_creditinfo ul li a {
+    text-decoration: underline;
+    font-weight: normal;
+    color: #FFF;
+  }
+
+  .width55 {
+    width: 55%;
+  }
+
+  .width50 {
+    width: 50%;
+  }
+
+  .width45 {
+    width: 45%;
+  }
+
+  .floatLeft {
+    float: left;
+  }
+
+  .floatRight {
+    float: right;
+  }
+
+  .contentCenter {
+    text-align: center;
+  }
+
+  .textOrange {
+    color: #F60;
+  }
+
+  #headermain img {
+    float: left;
+    vertical-align: top;
+  }
+
+  #headermain h1 {
+    float: left;
+    display: block;
+    font-size: 12px;
+    margin: 0;
+    padding: 3px 0 0 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 55px;
+    width: 300px;
+    overflow: hidden;
+  }
+
+  #header_debug_infos {
+    position: relative;
+    width: 980px;
+    text-align: left;
+    padding: 0 0 5px 0;
+  }
+
+  #account_login_f {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 435px;
+    height: 52px;
+    background: none no-repeat scroll 0 0 #E3DCCD;
+    border-radius: 0 0 7px 7px;
+    -moz-border-radius: 0 0 7px 7px;
+    -webkit-border-radius: 0 0 7px 7px;
+    -o-border-radius: 0 0 7px 7px;
+    -ms-border-radius: 0 0 7px 7px;
+    padding-top: 6px;
+  }
+
+  .noscript #account_login_f {
+    visibility: hidden;
+  }
+
+  .clearer {
+    clear: both;
+  }
+
+  .account_screen {
+    position: relative;
+    display: none;
+    width: 433px;
+    height: 50px;
+    padding-left: 2px;
+  }
+
+  #screen_form {
+    display: block;
+  }
+
+  #pass_lost_f {
+    display: none;
+  }
+
+  #create_acc_f {
+    display: none;
+  }
+
+  .form_container {
+    position: relative;
+    width: 433px;
+    height: 23px;
+  }
+
+  #account_login_form,#pass_lost_form {
+    position: relative;
+    width: 433px;
+    display: block;
+  }
+
+  #screen_form .form_el,#pass_lost_f .form_el {
+    float: left;
+  }
+
+  #screen_form .form_el.name {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 5px;
+    width: 30px;
+    color: #000;
+    font-size: 10px;
+  }
+
+  #pass_lost_form .form_el.input {
+    width: 170px;
+  }
+
+  #screen_form .form_el.pass {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 5px;
+    width: 78px;
+    color: #000;
+    font-size: 10px;
+    text-align: right;
+  }
+
+  #pass_lost_f .form_el.name {
+    padding-left: 4px;
+    width: 210px;
+    color: #000;
+    font-size: 10px;
+  }
+
+  #screen_form .form_el.input {
+    width: 130px;
+  }
+
+  #screen_form input[type="text"],#screen_form input[type="password"],#pass_lost_f input[type="text"] {
+    position: relative;
+    width: 120px;
+    height: 14px;
+    padding: 4px;
+    margin: 0;
+    background: none no-repeat scroll 0 0 #FFF;
+    border: 0 none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    font-size: 10px;
+    line-height: 14px!important;
+  }
+
+  #pass_lost_f input[type="text"] {
+    width: 160px;
+  }
+
+  #screen_form .submit_ok,#pass_lost_f .submit_ok {
+    padding-left: 12px;
+  }
+
+  #screen_form input[type="submit"],#pass_lost_f input[type="submit"] {
+    position: relative;
+    width: 28px;
+    height: 22px;
+    padding: 3px;
+    margin: 0;
+    background: none no-repeat scroll 0 0 #F60;
+    border: 0 none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    color: #FFF!important;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: lowercase;
+  }
+
+  #lost_passwd,.lost_passwd {
+    position: relative;
+    width: 383px;
+    padding-top: 4px;
+  }
+
+  #lost_passwd .left_float,#create_acc_f .left_float {
+    float: left;
+  }
+
+  #lost_passwd .create_acc {
+    text-align: left;
+    width: 194px;
+    padding-left: 4px;
+    height: 15px;
+  }
+
+  #lost_passwd .create_acc .label_new {
+    font-size: 12px;
+    font-weight: bold;
+    color: #F60;
+  }
+
+  #lost_passwd .lost_pwd {
+    text-align: right;
+    width: 185px;
+  }
+
+  #newad_passwd_block .lost_passwd {
+    width: 340px;
+  }
+
+  #lost_passwd a,#lost_passwd a:visited {
+    color: #369;
+    font-size: 10px;
+    font-style: italic;
+    text-decoration: none;
+  }
+
+  #lost_passwd a:hover {
+    color: #369;
+    font-size: 10px;
+    font-style: italic;
+    text-decoration: underline;
+  }
+
+  #lost_passwd_cancel {
+    position: relative;
+    width: 400px;
+    padding-top: 2px;
+    padding-left: 5px;
+    text-align: left;
+  }
+
+  .ua_IE8 #lost_passwd_cancel {
+    height: 14px;
+  }
+
+  #lost_passwd_cancel a,#lost_passwd_cancel a:visited,.lost_passwd_cancel a,.lost_passwd_cancel a:visited,#create_acc_cancel a,#create_acc_cancel a:visited {
+    color: #369;
+    font-size: 10px;
+    font-style: italic;
+    text-decoration: none;
+  }
+
+  #lost_passwd_cancel a:hover,#create_acc_cancel a:hover {
+    color: #369;
+    font-size: 10px;
+    font-style: italic;
+    text-decoration: underline;
+  }
+
+  #create_acc_f .create_part,#create_acc_f .create_pro {
+    width: 190px;
+    padding: 0 5px;
+    height: 22px;
+  }
+
+  #create_acc_f .create_part {
+    margin-right: 30px;
+  }
+
+  #create_acc_f .create_part a,#create_acc_f .create_pro a {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: none no-repeat scroll 0 0 #F60;
+    border: 0 none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    color: #FFF!important;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 22px;
+    display: block;
+  }
+
+  #create_acc_cancel {
+    padding: 0 0 0 5px;
+  }
+
+  #create_acc_head {
+    position: relative;
+    width: 433px;
+    padding: 0 0 0 5px;
+    font-size: 10px;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .navmain a:visited {
+    color: #369;
+  }
+
+  .navmain li.selected a {
+    color: #F60;
+  }
+
+  .navmain {
+    padding: 10px 0 0 0;
+    height: 26px;
+    text-transform: uppercase;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navmain li {
+    text-align: center;
+    border-left: 1px solid #999;
+    display: block;
+    float: left;
+  }
+
+  .navmain li:first-child {
+    border: 0;
+  }
+
+  .navmain li.accueil {
+    width: 94px;
+  }
+
+  .navmain li.deposer {
+    width: 191px;
+  }
+
+  .navmain li.offre {
+    width: 94px;
+  }
+
+  .navmain li.demande {
+    width: 114px;
+  }
+
+  .navmain li.mes_annonces {
+    width: 144px;
+  }
+
+  .navmain li.boutiques {
+    width: 121px;
+  }
+
+  .navmain li.compte_pro {
+    width: 132px;
+  }
+
+  .navmain li.aide {
+    width: 79px;
+  }
+
+  #nav_main.account_on li a {
+    color: #369;
+    text-decoration: none;
+  }
+
+  #nav_main.account_on li a:hover {
+    color: #369;
+    text-decoration: underline;
+  }
+
+  #nav_main.account_on li.compte_pro a {
+    color: #F60;
+  }
+
+  #nav_main.account_on li.compte_pro a:hover {
+    color: #F60;
+    text-decoration: underline;
+  }
+
+  #account_submenu {
+    margin: 0;
+    position: absolute;
+    width: 116px;
+    height: auto;
+    padding: 8px;
+    right: 87px;
+    background: none repeat scroll 0 0 #F60;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    -ms-border-radius: 5px 5px 5px 5px;
+    color: #FFF;
+    z-index: 1100;
+    display: none;
+  }
+
+  .noscript #account_submenu {
+    display: block;
+  }
+
+  #account_submenu .account_submenu_arrow {
+    position: absolute;
+    top: -9px;
+    left: 48%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5px 9px 5px;
+    border-color: #FFFFEB #FFFFEB #F60 #FFFFEB;
+    line-height: 0;
+    -webkit-transform: rotate(360deg);
+  }
+
+  #account_submenu .account_submenu_ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #account_submenu .account_submenu_ul li {
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+  }
+
+  #account_submenu .account_submenu_ul li.li_sep {
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #FFF;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  #account_submenu .account_submenu_ul li a,#account_submenu .account_submenu_ul li a:visited {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  #account_submenu .account_submenu_ul li a:hover {
+    color: #FFF;
+    text-decoration: underline;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .labelform {
+    margin: 2px 5px 0 0;
+    padding: 0;
+    width: 140px;
+    font-size: 1em;
+    text-align: left;
+    float: left;
+    font-weight: bold;
+    padding-top: 4px;
+  }
+
+  .requirelabel {
+    color: #C00;
+  }
+
+  .labelform.right {
+    text-align: right;
+  }
+
+  .adinput {
+    margin-top: 0;
+    width: 560px;
+    float: left;
+    padding-top: 4px;
+  }
+
+  .radioinput {
+    margin-top: 0;
+    width: 780px;
+    float: left;
+    padding-top: 4px;
+  }
+
+  .labeltext {
+    margin-right: 5px;
+    width: 140px;
+    font-size: 1em;
+    text-align: left;
+    float: left;
+    font-weight: bold;
+    padding-top: 4px;
+  }
+
+  #newad_passwd_block .adinput {
+    width: auto;
+  }
+
+  #acceptRuleExtra {
+    margin-left: 24px;
+  }
+
+  .PaymentContainer #acceptRuleExtra {
+    margin-left: 150px;
+  }
+
+  .content-color {
+    background: #FFF;
+    padding: 1px 20px 10px 20px;
+  }
+
+  h2 {
+    margin: 30px 0 0 -36px;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    background: #F60;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .subtitle_triangle {
+    margin: 0 0 0 -36px;
+    padding: 0;
+    border-color: #BD4B19 #BD4B19 #FFFFEB #FFFFEB;
+    border-style: solid;
+    border-width: 8px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+  }
+
+  .htmlbloc {
+    padding: 20px 0 0 31px;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .labelform,.small_labelform {
+    height: 28px;
+    line-height: 28px;
+    text-align: right;
+  }
+
+  .labelform.twin {
+    line-height: 14px;
+  }
+
+  .labelform {
+    width: 150px;
+  }
+
+  .labelform#lfai_included {
+    white-space: nowrap;
+  }
+
+  .adinput {
+    width: 780px;
+  }
+
+  .contenttext {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin: 2px 5px 0 0;
+    padding: 4px 0 0;
+  }
+
+  .select,.adinput input[type="password"],.adinput input[type="text"],.AdInput90 input[type="text"],.AdInput160 input[type="text"],.AdInputNosize input[type="text"],.adinput textarea,.datespickers input[type="text"] {
+    border: 1px #AAA solid;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .select {
+    height: 28px;
+    float: left;
+  }
+
+  .select select {
+    margin: 5px 0 0 3px;
+    border: 0;
+    background: #FFF;
+  }
+
+  .select div.clear {
+    height: 8px;
+  }
+
+  .adinput .select {
+    width: 250px;
+    background: #FFF;
+  }
+
+  .adinput textarea {
+    float: left;
+    width: 430px;
+    min-height: 120px;
+  }
+
+  .adinput .select select {
+    width: 241px;
+  }
+
+  #dclothing_type.AdInput700 .select select {
+    margin-right: 5px;
+  }
+
+  .message {
+    position: relative;
+  }
+
+  .message.right {
+    float: left;
+    width: 344px;
+  }
+
+  .message .triangle {
+    padding: 0;
+    border-style: solid;
+    border-width: 8px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    position: absolute;
+  }
+
+  .message.right .triangle {
+    left: 0;
+    top: 6px;
+    margin-left: 1px;
+  }
+
+  .message.below .triangle {
+    left: 3px;
+    top: 0;
+  }
+
+  #lbcEditServicesBox .message.below .triangle {
+    left: -1px;
+    top: -10px;
+  }
+
+  .optorderlegalsbox #accept_rule {
+    vertical-align: middle;
+    float: left;
+    margin-top: 2px;
+    padding-top: 0;
+  }
+
+  .ua_IE7 .optorderlegalsbox #accept_rule {
+    margin-top: -2px;
+  }
+
+  .ua_IE9 .optorderlegalsbox #accept_rule {
+    margin-top: 0;
+  }
+
+  .ua_IE9 #lbcEditServicesBox .message.below .triangle {
+    left: -1px;
+    top: 3px;
+  }
+
+  .ua_IE7 #lbcEditServicesBox .message.below .triangle {
+    left: -1px;
+    top: -11px;
+  }
+
+  .message.below.price_min_max .triangle {
+    left: 60px;
+  }
+
+  .message.below.price_min_max .triangle.bis {
+    left: 200px;
+  }
+
+  .message.below.availability .triangle {
+    left: 42px;
+  }
+
+  .message.below.availability .triangle.bis {
+    left: 182px;
+  }
+
+  .message.below.availability .triangle.ter {
+    left: 303px;
+  }
+
+  .message>span {
+    padding: 7px 10px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    display: block;
+    font-weight: bold;
+    border: 0;
+  }
+
+  .message.right>span {
+    margin: 0 0 0 18px;
+  }
+
+  .message.below>span {
+    margin: 18px 0 0 0;
+  }
+
+  .message.below.nomargin>span {
+    margin: 5px 0 0 0;
+  }
+
+  #lbcEditServicesBox .message.below.nomargin>span {
+    margin: 5px 0 0 -15px;
+  }
+
+  .ua_IE7 #lbcEditServicesBox .message.below.nomargin>span {
+    margin: 6px 0 0 -15px;
+  }
+
+  div#newadCGUExtra {
+    margin-left: 16px;
+  }
+
+  .ua_IE7 div#newadCGUExtra {
+    margin-left: 18px;
+  }
+
+  .ua_IE8 div#newadCGUExtra {
+    margin-left: 19px;
+  }
+
+  .message.availability>span {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
+  .message.info {
+    display: none;
+  }
+
+  .message_info .message {
+    display: none!important;
+  }
+
+  .message_info .message.info {
+    display: block!important;
+    z-index: 1000;
+  }
+
+  .message.info.right .triangle {
+    border-color: #FFF #3D6ABE #FFF #FFFFFF;
+  }
+
+  .message.info.below .triangle {
+    border-color: #FFF #FFFFFF #3D6ABE #FFFFFF;
+  }
+
+  .message.info span {
+    background: #3D6ABE;
+    color: #FFF;
+  }
+
+  .message.warn.right .triangle {
+    border-color: #FFF #3D6ABE #FFF #FFFFFF;
+  }
+
+  .message.warn.below .triangle {
+    border-color: #FFF #FFFFFF #3D6ABE #FFFFFF;
+  }
+
+  .message.warn span {
+    background: #3D6ABE;
+    color: #FFF;
+  }
+
+  .message.err.right .triangle {
+    border-color: #FFF #CC0000 #FFF #FFFFFF;
+  }
+
+  .message.err.below .triangle {
+    border-color: #FFF #FFFFFF #C00 #FFFFFF;
+  }
+
+  .ua_IE6 .triangle {
+    display: none;
+  }
+
+  .message.err span {
+    background: #C00;
+    color: #FFF;
+  }
+
+  input.button,a.button {
+    padding: 7px 0 6px 0;
+    width: 165px;
+    height: 30px;
+    text-align: center;
+    background: #F60;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    -ms-border-radius: 5px 5px 5px 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #FFF!important;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a.button {
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+  }
+
+  input.button.modify {
+    background: #F7A677;
+  }
+
+  input.button.extend {
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #image_new_big_size_message {
+    padding-right: 40px;
+  }
+
+  h2 {
+    width: 235px;
+  }
+
+  form#lost_new_password h2 {
+    width: 290px;
+  }
+
+  .labelform {
+    width: 250px;
+  }
+
+  .message.right {
+    width: 350px;
+  }
+
+  .adinput {
+    width: auto;
+  }
+
+  .adinput input[type="text"],.adinput input[type="password"] {
+    width: 240px;
+  }
+
+  .dateSelectContainer {
+    float: left;
+  }
+
+  .dateSelect .select {
+    margin-right: 3px;
+  }
+
+  .dateSelect .select.dateSelectDay {
+    width: 60px;
+  }
+
+  .dateSelect .select.dateSelectDay select {
+    width: 50px;
+  }
+
+  .dateSelect .select.dateSelectMonth {
+    width: 105px;
+  }
+
+  .dateSelect .select.dateSelectMonth select {
+    width: 95px;
+  }
+
+  .dateSelect .select.dateSelectYear {
+    width: 75px;
+  }
+
+  .dateSelect .select.dateSelectYear select {
+    width: 65px;
+  }
+
+  .adinput input[readonly="readonly"] {
+    cursor: default;
+  }
+
+  .adinput input[type="checkbox"] {
+    vertical-align: -2px;
+  }
+
+  .adinput .checkboxlist {
+    border: 1px solid #AAA;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    width: 590px;
+    padding: 5px;
+  }
+
+  .adinput .checkboxlist .checkboxlist-block {
+    float: left;
+    width: 196px;
+  }
+
+  .adinput .checkboxlist label {
+    cursor: pointer;
+  }
+
+  .ua_IE7 .adinput input[type="checkbox"] {
+    vertical-align: -3px;
+  }
+
+  .ua_OPE .adinput input[type="checkbox"] {
+    vertical-align: 0;
+  }
+
+  .adinput input[type="password"],.adinput input[type="text"],.AdInput90 input[type="text"],.AdInput160 input[type="text"],.AdInputNosize input[type="text"],.datespickers input[type="text"] {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+  }
+
+  .select,.adinput input[type="password"],.adinput input[type="text"],.AdInput90 input[type="text"],.AdInput160 input[type="text"],.AdInputNosize input[type="text"],.adinput textarea,.datespickers input[type="text"] {
+    border: 1px solid #AAA;
+    border-radius: 3px 3px 3px 3px;
+  }
+
+  #submit-buttoms {
+    padding-top: 30px;
+  }
+
+  form .formInput370 input[type="text"],form .formInput370 input[type="password"] {
+    width: 370px;
+  }
+
+  form .formInput590 input[type="text"],form .formInput590 input[type="password"] {
+    width: 590px;
+  }
+
+  form .formInput590 .adinput {
+    width: 602px;
+  }
+
+  form .formReadOnly input[type="text"] {
+    background: none repeat scroll 0 0 #CCC;
+  }
+
+  form .text {
+    color: #F60;
+    padding: 30px 0 10px 256px;
+  }
+
+  form .lost-password {
+    padding-left: 256px;
+    padding-top: 4px;
+  }
+
+  form .lost-password a:visited {
+    color: #369;
+  }
+
+  div.button {
+    padding: 20px 0 0 200px;
+  }
+
+  .button a,a.button {
+    background: none repeat scroll 0 0 #F60;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -o-border-radius: 5px 5px 5px 5px;
+    -ms-border-radius: 5px 5px 5px 5px;
+    color: #FFF!important;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    width: 165px;
+    display: block;
+    height: 30px;
+    line-height: 32px;
+  }
+
+  .ua_IE9 a.button {
+    line-height: 31px;
+  }
+
+  .ua_IE8 a.button {
+    line-height: 31px;
+  }
+
+  .ua_IE7 a.button {
+    line-height: 30px;
+  }
+
+  .ua_OPE a.button {
+    line-height: 31px;
+  }
+
+  a.button.cancel {
+    float: left;
+    margin-left: 10px;
+    background: #808A94;
+  }
+
+  a.button.validate {
+    float: left;
+    margin-left: 10px;
+    background: #F60;
+  }
+
+  a.button.cancel:hover {
+    text-decoration: none;
+  }
+
+  input.button {
+    float: left;
+  }
+
+  .message.below .triangle {
+    left: 6px;
+    top: 0;
+  }
+
+  .ua_IE8 .message.below {
+    padding-top: 1px;
+  }
+
+  .ua_IE8 .message.below .triangle {
+    top: 0;
+  }
+
+  .form_separator {
+    background: #FFFFEB;
+    border-color: #CCC;
+    border-style: solid;
+    border-width: 1px 0;
+    height: 40px;
+    margin: 25px -20px 10px;
+  }
+
+  .htmlbloc .form_separator {
+    margin-left: -51px;
+  }
+
+  .message>span {
+    float: left;
+    max-width: 665px;
+  }
+
+  #footer {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  #footer a {
+    padding: 0 5px;
+    font-weight: normal;
+    font-size: 10px;
+  }
+
+  #footer a:visited {
+    color: #369;
+  }
+
+  #footer a.selected {
+    color: #F60;
+  }
+
+  #footer a.ope {
+    color: #F00;
+    text-decoration: underline;
+  }
+
+  #footer a.ope:hover {
+    color: #F60;
+  }
+
+  .cookieFrame {
+    width: 100%;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: #e3dccc;
+    padding: 10px 0;
+  }
+
+  .cookieFrame .cookieFrameText {
+    width: 980px;
+    margin: 0 auto;
+  }
+
+  .cookieFrame .cookieFrameClose {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+  }
+
+  .cookieFrame .cookieFrameClose input {
+    font-size: 20px;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+  }
+
+}

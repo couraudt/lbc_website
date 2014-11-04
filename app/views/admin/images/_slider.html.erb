@@ -1,0 +1,31 @@
+<div class="outside">
+  <p><span id="slider-prev"></span> | <span id="slider-next"></span></p>
+</div>
+<ul class="bxslider">
+  <% if images.image_1.present? %>
+    <li>
+      <img src="<%= images.image_1.url(:full) %>" />
+    </li>
+  <% end %>
+  <% if images.image_2.present? %>
+    <li>
+      <img src="<%= images.image_2.url(:full) %>" />
+    </li>
+  <% end %>
+  <% if images.image_3.present? %>
+    <li>
+      <img src="<%= images.image_3.url(:full) %>" />
+    </li>
+  <% end %>
+</ul>
+
+
+<%= javascript_tag do -%>
+  $('.bxslider').bxSlider({
+    nextSelector: '#slider-next',
+    prevSelector: '#slider-prev',
+    nextText: 'Suivant →',
+    prevText: '← Précedent',
+    slideWidth: 380
+  });
+<% end -%>
